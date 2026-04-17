@@ -1,0 +1,208 @@
+/* =========================================================
+   Gmail Custom CSS
+   Section 2: Appearance Improvements
+   Notes:
+   - This version keeps the original behavior intact.
+   - Selectors and property values are unchanged unless only
+     spacing/formatting was improved.
+   - Gmail class names are internal and may change over time.
+   ========================================================= */
+
+
+/* =========================================================
+   1) Scrollbar
+   ========================================================= */
+
+/* Changes the color of the draggable scrollbar thumb in WebKit browsers */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(199,237,179,0.7) !important;
+}
+
+
+/* =========================================================
+   2) Compose Button
+   ========================================================= */
+
+/*
+  Styles the Compose button with:
+  - white background
+  - black text
+  - rounded / oval appearance
+  - pointer cursor
+  - subtle border
+*/
+.T-I-KE {
+  background-color: white !important;
+  background-image: none !important;
+  color: black;
+  cursor: pointer !important;
+  border-radius: 14px !important;
+  text-shadow: none;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+/*
+  Hover state for the Compose button:
+  - changes background to soft green
+  - removes background image and box shadow
+  - keeps the subtle border
+*/
+.T-I-KE:hover {
+  background: rgba(199,237,179,0.7) !important;
+  background-image: none !important;
+  box-shadow: none;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+
+/* =========================================================
+   3) Left Sidebar / Labels
+   ========================================================= */
+
+/*
+  Styles the selected label row in the left sidebar:
+  - light gray background
+  - matching left border
+  - rounded edges
+*/
+.ain {
+  background-color: #E5E5E5 !important;
+  border-left: 2px solid #E5E5E5 !important;
+  border-radius: 14px;
+}
+
+/*
+  Styles selected label text:
+  - blue text
+  - underlined
+*/
+.nZ.TO .n0 {
+  color: #0000cc !important;
+  text-decoration: underline !important;
+}
+
+/*
+  Base label text styling:
+  - custom font stack
+  - consistent font size
+*/
+.TO {
+  font-family: 'Segoe UI', 'Open Sans' !important;
+  font-size: 14px !important;
+}
+
+/*
+  Hover state for left sidebar label rows:
+  - soft green background
+  - rounded edges
+*/
+.TO:hover {
+  background: rgba(199,237,179,0.8) !important;
+  border-radius: 14px !important;
+}
+
+
+/* =========================================================
+   4) Message Row Colors
+   ========================================================= */
+
+/*
+  Unread message rows:
+  - soft blue background for visibility
+*/
+.zE {
+  background: rgba(204,221,255,0.8) !important;
+}
+
+/*
+  Hover state for unread message rows:
+  - changes to soft green
+*/
+.zE:hover {
+  background: rgba(199,237,179,0.8) !important;
+}
+
+/*
+  Read message rows:
+  - white background
+*/
+.yO {
+  background: rgba(255,255,255,0.8) !important;
+}
+
+/*
+  Hover state for read rows:
+  - changes to soft green
+  - comment note preserved from original
+*/
+/* (Vertical split users - Comment this line out if hover action is too annoying) */
+.yO:hover {
+  background: rgba(199,237,179,0.8) !important;
+}
+
+/*
+  Selected rows:
+  - pale yellow background
+  - hover keeps the same selected color
+*/
+.x7 {
+  background: rgba(255,250,205,0.8) !important;
+}
+
+.x7:hover {
+  background: rgba(255,250,205,0.8) !important;
+}
+
+
+/* =========================================================
+   5) Layout / Density Tweaks
+   Original note: New code from SoWy
+   ========================================================= */
+
+/*
+  Increases minimum height for certain message row elements
+  to create a roomier look
+*/
+.zF,
+.xY {
+  min-height: 50px !important;
+}
+
+/*
+  Makes specific text elements slightly bolder
+*/
+.bqe,
+.bq3 {
+  font-weight: 500 !important;
+}
+
+/*
+  Vertically centers content in matching elements
+*/
+.xY {
+  vertical-align: middle !important;
+}
+
+/*
+  Forces selected elements to behave like table containers
+  for layout alignment
+*/
+.y6,
+.xT {
+  display: table !important;
+}
+
+/*
+  Adds a small amount of right padding to message content
+*/
+.yX {
+  padding-right: 0.25rem !important;
+}
+
+/*
+  Hides specific Gmail UI elements
+*/
+.Zt,
+.bAw {
+  display: none !important;
+}
