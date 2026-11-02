@@ -28,7 +28,10 @@ user-style browser extension.
    Firefox Add-ons).
 2. Open Gmail, click the Stylus icon and choose **Write style for:
    mail.google.com**.
-3. Paste the contents of [`Gmail_autumn.css`](Gmail_autumn.css) and save.
+3. Select everything in the editor and paste the whole of
+   [`Gmail_autumn.css`](Gmail_autumn.css) over it, including the
+   `==UserStyle==` header at the top, then save. Without that header
+   Stylus reports "Could not find metadata".
 4. Reload Gmail.
 
 To update, replace the style's contents with the latest `Gmail_autumn.css`.
@@ -57,10 +60,12 @@ more accounts, copy the file and change the address and colors.
 
 [`Gmail_palette_ember.css`](Gmail_palette_ember.css) works the same way with
 copper, rust, peach and flame-orange colors, made to sit on a dark
-chocolate-and-copper Gmail background. It starts with a Stylus
-`==UserStyle==` header and an `@-moz-document` block, so paste the whole
-file into a new style and it gets its own name ("Gmail Ember") instead of
-clashing with an existing style.
+chocolate-and-copper Gmail background.
+
+Every file starts with a Stylus `==UserStyle==` header and wraps its rules
+in `@-moz-document domain("mail.google.com")`. Paste each whole file into
+its own style and it gets its own name ("Gmail Autumn", "Gmail Ocean",
+"Gmail Ember") instead of clashing with another style.
 
 Some variable names (`--gm-blue-unread`, `--gm-gray-selected`,
 `--gm-yellow-selected`, `--gm-white-read`) date from the original green

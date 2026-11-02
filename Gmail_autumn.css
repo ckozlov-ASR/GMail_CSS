@@ -1,3 +1,11 @@
+/* ==UserStyle==
+@name         Gmail Autumn
+@namespace    github.com/ckozlov-ASR/GMail_CSS
+@version      2.3.0
+@description  Autumn theme for Gmail: warm palette, roomier rows, tab highlights, thread cards
+@author       ckozlov-ASR
+==/UserStyle== */
+
 /* =========================================================
    Gmail Custom CSS — Autumn Theme
    =========================================================
@@ -15,7 +23,15 @@
    are short, auto-generated, and not guaranteed to stay the same
    across updates — if a rule stops working after a Gmail update,
    that's the most likely reason.
+
+   STYLUS
+   Paste the whole file, header included, into a Stylus style. The
+   ==UserStyle== header names the style; without it Stylus reports
+   "Could not find metadata". Everything below sits inside
+   @-moz-document so it only applies on mail.google.com.
    ========================================================= */
+
+@-moz-document domain("mail.google.com") {
 
 :root {
   /* Autumn palette pulled from the forest/foliage desktop background:
@@ -299,3 +315,5 @@
 .bAw {
   display: none !important;
 }
+
+} /* end @-moz-document domain("mail.google.com") */

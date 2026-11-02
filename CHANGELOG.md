@@ -10,6 +10,14 @@ All notable changes to this theme are recorded here. The format follows
 - **Bolder subject lines.** Read-message subjects go from normal (400) to
   500, and unread subjects from 500 to 600, so unread stays heavier than
   read.
+- **Stylus headers.** `Gmail_autumn.css` and `Gmail_palette_ocean.css` now
+  start with a `==UserStyle==` header ("Gmail Autumn", "Gmail Ocean") and
+  wrap their rules in `@-moz-document domain("mail.google.com")`, like the
+  Ember file.
+
+### Fixed
+- Pasting the Autumn or Ocean file into a Stylus UserCSS style no longer
+  fails with "Could not find metadata" or the @name/@namespace clash.
 
 ## [2.2.0] — 2026-11-02 — Ember palette
 

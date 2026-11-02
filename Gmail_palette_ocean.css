@@ -1,3 +1,11 @@
+/* ==UserStyle==
+@name         Gmail Ocean
+@namespace    github.com/ckozlov-ASR/GMail_CSS
+@version      2.3.0
+@description  Ocean palette override for one Gmail account (needs Gmail Autumn)
+@author       ckozlov-ASR
+==/UserStyle== */
+
 /* =========================================================
    Gmail Custom CSS — Ocean Palette (per-account override)
    =========================================================
@@ -8,9 +16,10 @@
 
    SETUP
    Replace your.account@example.com below with the address of the
-   account that should use this palette (keep the quotes). Install
-   this as its own Stylus style, applying to the domain
-   mail.google.com, alongside Gmail_autumn.css.
+   account that should use this palette (keep the quotes), then
+   paste this whole file, header included, into a new Stylus style
+   alongside Gmail_autumn.css. The ==UserStyle== header gives it its
+   own name, and @-moz-document limits it to mail.google.com.
    For more accounts, copy this file and change the address and
    colors in the copy.
 
@@ -35,14 +44,16 @@
    that account's profile.
    ========================================================= */
 
-html:has(a[aria-label*="your.account@example.com"]) {
-  /* Variable names match Gmail_autumn.css; each comment says what
-     the color is used for there. */
-  --gm-green: rgba(135, 180, 210, 0.65);          /* soft sky blue — scrollbar thumb, Compose hover */
-  --gm-green-strong: rgba(110, 165, 200, 0.8);    /* deeper sky blue — row/label/tab hover */
-  --gm-gray-selected: #8fb0c9;                    /* misty slate blue — selected sidebar label */
-  --gm-blue-link: #0b2e59;                        /* deep navy — selected label text (more contrast on slate than #0000cc) */
-  --gm-blue-unread: rgba(214, 232, 245, 0.85);    /* pale aqua — unread message row background */
-  --gm-white-read: #f5f9fc;                       /* cool off-white — read rows, thread cards */
-  --gm-yellow-selected: rgba(90, 180, 175, 0.45); /* seafoam — selected row, active tab, thread header strip */
+@-moz-document domain("mail.google.com") {
+  html:has(a[aria-label*="your.account@example.com"]) {
+    /* Variable names match Gmail_autumn.css; each comment says what
+       the color is used for there. */
+    --gm-green: rgba(135, 180, 210, 0.65);          /* soft sky blue — scrollbar thumb, Compose hover */
+    --gm-green-strong: rgba(110, 165, 200, 0.8);    /* deeper sky blue — row/label/tab hover */
+    --gm-gray-selected: #8fb0c9;                    /* misty slate blue — selected sidebar label */
+    --gm-blue-link: #0b2e59;                        /* deep navy — selected label text (more contrast on slate than #0000cc) */
+    --gm-blue-unread: rgba(214, 232, 245, 0.85);    /* pale aqua — unread message row background */
+    --gm-white-read: #f5f9fc;                       /* cool off-white — read rows, thread cards */
+    --gm-yellow-selected: rgba(90, 180, 175, 0.45); /* seafoam — selected row, active tab, thread header strip */
+  }
 }
