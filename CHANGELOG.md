@@ -6,6 +6,8 @@ All notable changes to this theme are recorded here. The format follows
 
 ## [Unreleased]
 
+## [3.0.0] — 2026-11-02 — Base + themes
+
 Breaking: the single Autumn file is split into a layout base plus theme
 files. Existing Stylus styles need replacing (see **Upgrading** below).
 
@@ -138,7 +140,8 @@ First published version.
 - Section headers and comments throughout; selectors and values unchanged
   from the original uploaded stylesheet.
 
-[Unreleased]: https://github.com/ckozlov-ASR/GMail_CSS/compare/v2.3.0...HEAD
+[Unreleased]: https://github.com/ckozlov-ASR/GMail_CSS/compare/v3.0.0...HEAD
+[3.0.0]: https://github.com/ckozlov-ASR/GMail_CSS/compare/v2.3.0...v3.0.0
 [2.3.0]: https://github.com/ckozlov-ASR/GMail_CSS/compare/v2.2.0...v2.3.0
 [2.2.0]: https://github.com/ckozlov-ASR/GMail_CSS/compare/v2.1.0...v2.2.0
 [2.1.0]: https://github.com/ckozlov-ASR/GMail_CSS/compare/v2.0.0...v2.1.0

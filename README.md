@@ -5,7 +5,7 @@ highlighted category tabs, rounded "card" styling for messages in a thread,
 and a choice of color themes, with a different theme per Gmail account if you
 like.
 
-Current version: **2.3.0** — see [CHANGELOG.md](CHANGELOG.md).
+Current version: **3.0.0** — see [CHANGELOG.md](CHANGELOG.md).
 
 ## How it's organized
 
