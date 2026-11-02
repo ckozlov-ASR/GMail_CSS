@@ -1,31 +1,44 @@
 /* ==UserStyle==
-@name         Gmail Autumn
+@name         Gmail Base
 @namespace    github.com/ckozlov-ASR/GMail_CSS
-@version      2.3.0
-@description  Autumn theme for Gmail: warm palette, roomier rows, tab highlights, thread cards
+@version      3.0.0
+@description  Gmail layout and shapes: roomier rows, tab highlights, thread cards. Colors come from a theme style.
 @author       ckozlov-ASR
 ==/UserStyle== */
 
 /* =========================================================
-   Gmail Custom CSS — Autumn Theme
+   Gmail Custom CSS — Base (layout and shapes)
    =========================================================
    Overview of what this file changes in Gmail's UI:
-     1) Scrollbar thumb color
-     2) Compose button color + shape
-     3) Left sidebar label colors (default, selected, hover)
-     4) Message row colors (unread, read, selected) + hover
+     1) Scrollbar thumb
+     2) Compose button shape
+     3) Left sidebar labels (selected, hover, font)
+     4) Message rows (unread, read, selected) + hover
      4b) Primary/Promotions/Updates tab highlight + hover
+     4c) Thread view as rounded cards
      5) Row height, text weight, layout fixes, and hiding
         a couple of minor UI elements
 
-   All repeated colors live in the :root variables below, so the
-   palette can be retuned from one place. Gmail's own class names
-   are short, auto-generated, and not guaranteed to stay the same
-   across updates — if a rule stops working after a Gmail update,
-   that's the most likely reason.
+   This file sets no palette of its own. Every color is a
+   var(--gm-...) supplied by a theme style in themes/ (Autumn,
+   Ocean, Ember). The theme variables, by role:
+     --gm-hover-soft      scrollbar thumb, Compose hover
+     --gm-hover           row / sidebar label / tab hover
+     --gm-label-selected  selected sidebar label background
+     --gm-label-text      selected sidebar label text
+     --gm-row-unread      unread message row background
+     --gm-row-read        read message row, thread card background
+     --gm-accent          selected row, active tab, thread header strip
+   Each var() carries a neutral gray fallback, so Gmail still looks
+   reasonable if no theme is installed.
+
+   Gmail's own class names are short, auto-generated, and not
+   guaranteed to stay the same across updates — if a rule stops
+   working after a Gmail update, that's the most likely reason.
 
    STYLUS
-   Paste the whole file, header included, into a Stylus style. The
+   Paste the whole file, header included, into its own Stylus
+   style, and add one or more theme styles next to it. The
    ==UserStyle== header names the style; without it Stylus reports
    "Could not find metadata". Everything below sits inside
    @-moz-document so it only applies on mail.google.com.
@@ -34,17 +47,9 @@
 @-moz-document domain("mail.google.com") {
 
 :root {
-  /* Autumn palette pulled from the forest/foliage desktop background:
-     deep greens, warm cream/tan, and golden amber. */
-  --gm-green: rgba(168, 186, 148, 0.65);          /* light sage — scrollbar thumb, Compose hover */
-  --gm-green-strong: rgba(150, 172, 126, 0.8);    /* slightly deeper sage — row/label/tab hover */
-  --gm-gray-selected: #a89a7a;                    /* warm taupe — selected sidebar label */
-  --gm-blue-link: #0000cc;                        /* selected label text color (unchanged from original) */
-  --gm-blue-unread: rgba(250, 235, 204, 0.85);    /* warm cream — unread message row background */
-  --gm-white-read: #faf8f2;                       /* warm off-white — read message row background */
-  --gm-yellow-selected: rgba(230, 180, 90, 0.5);  /* golden amber — selected row + active tab background */
+  /* Shape and motion settings shared by every theme. */
   --gm-border-subtle: 1px solid rgba(0, 0, 0, 0.1); /* faint border used on the Compose button */
-  --gm-radius: 14px;                              /* corner rounding used on Compose + tabs */
+  --gm-radius: 14px;                              /* corner rounding used on Compose, tabs, thread cards */
   --gm-font-stack: 'Segoe UI', 'Open Sans', sans-serif; /* sidebar label font */
   --gm-transition: background-color 0.15s ease;   /* eases hover color changes instead of snapping */
 }
@@ -54,9 +59,9 @@
    1) Scrollbar
    ========================================================= */
 
-/* Recolors the draggable scrollbar thumb to sage green (WebKit browsers only). */
+/* Recolors the draggable scrollbar thumb (WebKit browsers only). */
 ::-webkit-scrollbar-thumb {
-  background-color: var(--gm-green) !important;
+  background-color: var(--gm-hover-soft, rgba(0, 0, 0, 0.2)) !important;
 }
 
 
@@ -76,9 +81,10 @@
   transition: var(--gm-transition);
 }
 
-/* Hover state: fills with sage green, drops the default shadow, keeps the border. */
+/* Hover state: fills with the theme's soft hover color, drops the
+   default shadow, keeps the border. */
 .T-I-KE:hover {
-  background: var(--gm-green) !important;
+  background: var(--gm-hover-soft, rgba(0, 0, 0, 0.2)) !important;
   background-image: none !important;
   box-shadow: none;
   border: var(--gm-border-subtle);
@@ -89,17 +95,17 @@
    3) Left Sidebar / Labels
    ========================================================= */
 
-/* Selected label row (e.g. "Inbox" when active): warm taupe background.
+/* Selected label row (e.g. "Inbox" when active).
    Shape is left as Gmail's default — no custom rounding here. */
 .ain {
-  background-color: var(--gm-gray-selected) !important;
-  border-left: 2px solid var(--gm-gray-selected) !important;
+  background-color: var(--gm-label-selected, #e5e5e5) !important;
+  border-left: 2px solid var(--gm-label-selected, #e5e5e5) !important;
 }
 
-/* Selected label's text: blue and underlined, so it still reads as "active"
-   even against the new taupe background. */
+/* Selected label's text: themed color and underlined, so it still
+   reads as "active" against the selected background. */
 .nZ.TO .n0 {
-  color: var(--gm-blue-link) !important;
+  color: var(--gm-label-text, #0000cc) !important;
   text-decoration: underline !important;
 }
 
@@ -115,12 +121,10 @@
   transition: var(--gm-transition);
 }
 
-/* Hovered label row (not selected): sage green background, Gmail's default
-   shape. Shares --gm-green-strong with the message-row hovers below and
-   the tab hovers further down, so all "hover to green" states move
-   together if the palette changes. */
+/* Hovered label row (not selected). Shares --gm-hover with the
+   message-row and tab hovers below, so all hover states move together. */
 .TO:hover {
-  background: var(--gm-green-strong) !important;
+  background: var(--gm-hover, rgba(0, 0, 0, 0.06)) !important;
 }
 
 
@@ -128,33 +132,33 @@
    4) Message Row Colors
    ========================================================= */
 
-/* Unread message row: warm cream background. */
+/* Unread message row. */
 .zE {
-  background: var(--gm-blue-unread) !important;
+  background: var(--gm-row-unread, rgba(255, 255, 255, 0.9)) !important;
   transition: var(--gm-transition);
 }
 
-/* Read message row: warm off-white background.
+/* Read message row.
    (Vertical split users: comment out the .yO:hover rule below if that
    hover effect feels too distracting in that layout.) */
 .yO {
-  background: var(--gm-white-read) !important;
+  background: var(--gm-row-read, #f6f6f6) !important;
   transition: var(--gm-transition);
 }
 
-/* Hovering either an unread or read row: both turn sage green.
+/* Hovering either an unread or read row.
    Combined into one rule so they always match each other. */
 .zE:hover,
 .yO:hover {
-  background: var(--gm-green-strong) !important;
+  background: var(--gm-hover, rgba(0, 0, 0, 0.06)) !important;
 }
 
-/* Selected (checkbox-ticked) row: golden amber, and it stays amber on
-   hover rather than switching to green, so "selected" stays visually
-   distinct from "just hovered". */
+/* Selected (checkbox-ticked) row: accent color, and it keeps the accent
+   on hover rather than switching to the hover color, so "selected"
+   stays visually distinct from "just hovered". */
 .x7,
 .x7:hover {
-  background: var(--gm-yellow-selected) !important;
+  background: var(--gm-accent, rgba(0, 0, 0, 0.1)) !important;
   transition: var(--gm-transition);
 }
 
@@ -163,7 +167,7 @@
    4b) Category Tabs (Primary / Promotions / Updates)
    ========================================================= */
 
-/* Active tab background: golden amber, matching the selected-row color,
+/* Active tab background: accent color, matching the selected-row color,
    so the active tab reads as clearly "on" instead of just a thin
    underline. .aAy is Gmail's shared tab-cell class; it adds "J-KU-KO"
    only to whichever tab is currently active. Gmail also ships its own
@@ -171,25 +175,25 @@
    (.J-KU-Jg-K9.aAA .J-KU-KO.aAy { background: none !important; }),
    so this selector repeats that exact specificity to override it. */
 .J-KU-Jg-K9.aAA .J-KU-KO.aAy {
-  background-color: var(--gm-yellow-selected) !important;
+  background-color: var(--gm-accent, rgba(0, 0, 0, 0.1)) !important;
   border-radius: var(--gm-radius) var(--gm-radius) 0 0;
 }
 
 /* Active tab's underline bar: recolored from Gmail's default blue to
-   sage green. The bar itself is a ::before pseudo-element; Gmail sets
-   its color via several per-tab variant selectors (e.g.
+   the hover color. The bar itself is a ::before pseudo-element; Gmail
+   sets its color via several per-tab variant selectors (e.g.
    .J-KU-KO.aIf-aLe::before), so overriding the shared
    .J-KU-KO.aAy::before with !important covers all of them at once. */
 .J-KU-KO.aAy::before {
-  background-color: var(--gm-green-strong) !important;
+  background-color: var(--gm-hover, rgba(0, 0, 0, 0.06)) !important;
 }
 
 /* Hovering an inactive tab (Promotions, Updates, or Primary when it
-   isn't the active one): sage green highlight, same as the other hover
-   states. :not(.J-KU-KO) keeps this off the already-highlighted active
-   tab so the two states don't fight each other. */
+   isn't the active one), same as the other hover states.
+   :not(.J-KU-KO) keeps this off the already-highlighted active tab so
+   the two states don't fight each other. */
 .J-KU-Jg-K9.aAA .aRz .aAy:not(.J-KU-KO):hover {
-  background-color: var(--gm-green-strong) !important;
+  background-color: var(--gm-hover, rgba(0, 0, 0, 0.06)) !important;
   border-radius: var(--gm-radius) var(--gm-radius) 0 0;
   transition: var(--gm-transition);
 }
@@ -214,7 +218,7 @@
 /* Each message in the thread becomes its own rounded card, with a
    small gap below it instead of Gmail's default hairline divider. */
 .adn.ads {
-  background-color: var(--gm-white-read) !important;
+  background-color: var(--gm-row-read, #f6f6f6) !important;
   border: 1px solid rgba(0, 0, 0, 0.08) !important;
   border-radius: var(--gm-radius) !important;
   margin: 0 4px 10px 4px !important;
@@ -232,7 +236,7 @@
    instead of .gs itself keeps the tint on just the header in both
    cases. */
 .adn.ads .gs > .gE.iv.gt {
-  background-color: var(--gm-yellow-selected) !important;
+  background-color: var(--gm-accent, rgba(0, 0, 0, 0.1)) !important;
   border-top-left-radius: var(--gm-radius);
   border-top-right-radius: var(--gm-radius);
   padding: 6px 10px;
@@ -254,7 +258,7 @@
    header element to target) keeps the whole thread visually
    consistent whether a message is expanded or still collapsed. */
 .kv {
-  background-color: var(--gm-white-read) !important;
+  background-color: var(--gm-row-read, #f6f6f6) !important;
   border: 1px solid rgba(0, 0, 0, 0.08) !important;
   border-radius: var(--gm-radius) !important;
   margin: 0 4px 6px 4px !important;

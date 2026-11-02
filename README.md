@@ -1,75 +1,98 @@
-# Gmail CSS — Autumn Theme
+# Gmail CSS — Base + Themes
 
-A custom stylesheet that reskins the Gmail web interface with a warm autumn
-palette (sage green, taupe, cream, golden amber), roomier message rows,
-highlighted category tabs, and rounded "card" styling for messages in a
-thread.
+Custom styles that reskin the Gmail web interface: roomier message rows,
+highlighted category tabs, rounded "card" styling for messages in a thread,
+and a choice of color themes, with a different theme per Gmail account if you
+like.
 
 Current version: **2.3.0** — see [CHANGELOG.md](CHANGELOG.md).
 
-## What it changes
+## How it's organized
+
+| File | What it does |
+| --- | --- |
+| [`Gmail_base.css`](Gmail_base.css) | Layout and shapes for every account. Sets no palette; reads its colors from a theme. |
+| [`themes/autumn.css`](themes/autumn.css) | Sage, taupe, cream and golden amber. The **default**: colors every account no other theme claims. |
+| [`themes/ocean.css`](themes/ocean.css) | Sky blue, slate, pale aqua and seafoam, for **one account** matched by email address. |
+| [`themes/ember.css`](themes/ember.css) | Copper, rust, peach and flame orange, for **one account** matched by email address. |
+
+Install the base once, plus Autumn and whichever account themes you use.
+
+## What the base changes
 
 | Area | Effect |
 | --- | --- |
-| Scrollbar | Sage green thumb (Chromium/WebKit browsers only) |
-| Compose button | White pill with a faint border; turns sage on hover |
-| Left sidebar | Taupe background on the selected label, blue underlined text, sage hover, sharper icons |
-| Message list | Cream unread rows, off-white read rows, amber selected rows, sage hover |
-| Category tabs | Amber background on the active Primary/Promotions/Updates tab, sage underline and hover |
-| Thread view | Each message is a rounded card with an amber sender/date strip |
-| Density | Taller rows (50px), slightly bolder sender/subject text, two minor UI elements hidden |
+| Scrollbar | Theme-colored thumb (Chromium/WebKit browsers only) |
+| Compose button | White pill with a faint border; theme color on hover |
+| Left sidebar | Theme color on the selected label with underlined text, hover color, sharper icons |
+| Message list | Separate unread, read and selected row colors, hover color |
+| Category tabs | Accent background on the active Primary/Promotions/Updates tab, themed underline and hover |
+| Thread view | Each message is a rounded card with an accent sender/date strip |
+| Density | Taller rows (50px), bolder sender and subject text, two minor UI elements hidden |
 
 ## Installing
 
-Gmail has no built-in custom CSS setting, so the stylesheet is applied with a
-user-style browser extension.
+Gmail has no built-in custom CSS setting, so the styles are applied with the
+**Stylus** browser extension (Chrome Web Store, Edge Add-ons or Firefox
+Add-ons). Each file becomes its own Stylus style:
 
-1. Install **Stylus** for your browser (Chrome Web Store, Edge Add-ons or
-   Firefox Add-ons).
-2. Open Gmail, click the Stylus icon and choose **Write style for:
-   mail.google.com**.
-3. Select everything in the editor and paste the whole of
-   [`Gmail_autumn.css`](Gmail_autumn.css) over it, including the
-   `==UserStyle==` header at the top, then save. Without that header
-   Stylus reports "Could not find metadata".
+1. In Stylus, choose **Manage → Write new style**.
+2. Select everything in the editor and paste the whole file over it,
+   including the `==UserStyle==` header at the top, then save. Without that
+   header Stylus reports "Could not find metadata".
+3. Repeat for each file:
+   - `Gmail_base.css` (always)
+   - `themes/autumn.css` (always: it's the default colors)
+   - `themes/ocean.css` and/or `themes/ember.css`, after replacing
+     `your.account@example.com` with that account's address
 4. Reload Gmail.
 
-To update, replace the style's contents with the latest `Gmail_autumn.css`.
+Every file wraps its rules in `@-moz-document domain("mail.google.com")`, so
+the styles only apply to Gmail, and the order of styles in Stylus doesn't
+matter.
+
+To update, paste the latest version of a file over its style. Re-enter your
+email address in Ocean or Ember when you do.
 
 ## Customizing
 
-All colors, the corner radius, the sidebar font and the hover transition are
-defined once as CSS custom properties in the `:root` block at the top of the
-file. Edit those values to retune the whole theme.
+### Theme colors
 
-### Different colors per Gmail account
+Each theme sets the same seven variables, named for what they color:
 
-[`Gmail_palette_ocean.css`](Gmail_palette_ocean.css) recolors the theme with
-cool blues and seafoam for one account only. It overrides just the `:root`
-colors, so install it as a second Stylus style next to `Gmail_autumn.css`
-(both applying to `mail.google.com`):
+| Variable | Used for |
+| --- | --- |
+| `--gm-hover-soft` | Scrollbar thumb, Compose hover |
+| `--gm-hover` | Row, sidebar label and tab hover |
+| `--gm-label-selected` | Selected sidebar label background |
+| `--gm-label-text` | Selected sidebar label text |
+| `--gm-row-unread` | Unread message rows |
+| `--gm-row-read` | Read message rows, thread cards |
+| `--gm-accent` | Selected rows, active tab, thread header strip |
 
-1. Replace `your.account@example.com` in the file with that account's address.
-2. Add it in Stylus as a new style for `mail.google.com`.
+The base gives each one a neutral gray fallback, so Gmail still looks
+reasonable with the base alone.
 
-The style matches the address in the `aria-label` of Gmail's account avatar
-button, so other accounts keep the Autumn colors. If each account has its
-own Stylus (for example one browser profile per account), replace
-the selector with `:root` and install the palette only in that profile. For
-more accounts, copy the file and change the address and colors.
+### A new theme or another account
 
-[`Gmail_palette_ember.css`](Gmail_palette_ember.css) works the same way with
-copper, rust, peach and flame-orange colors, made to sit on a dark
-chocolate-and-copper Gmail background.
+Copy `themes/ocean.css`, give it a new `@name`, change the email address and
+the seven colors, and add it to Stylus as another style.
 
-Every file starts with a Stylus `==UserStyle==` header and wraps its rules
-in `@-moz-document domain("mail.google.com")`. Paste each whole file into
-its own style and it gets its own name ("Gmail Autumn", "Gmail Ocean",
-"Gmail Ember") instead of clashing with another style.
+### How account matching works
 
-Some variable names (`--gm-blue-unread`, `--gm-gray-selected`,
-`--gm-yellow-selected`, `--gm-white-read`) date from the original green
-theme and describe what each one styles, not its current color.
+Account themes match the address in the `aria-label` of Gmail's account
+avatar button (top right), using
+`html:has(a[aria-label*="you@example.com"])`. That selector outranks the
+default theme's `:root`, so the account theme wins on its own account.
+This works whether your browser shares one Stylus across accounts or, like
+separate browser profiles, gives each its own. With separate
+profiles you can also skip the email match: change the selector to `:root`
+and install that theme only in that profile.
+
+### Shapes and spacing
+
+Corner radius, sidebar font, the Compose border and the hover transition
+are variables in the `:root` block at the top of `Gmail_base.css`.
 
 ## Known limitations
 
@@ -80,9 +103,9 @@ theme and describe what each one styles, not its current color.
   developer tools.
 - `.Zt` and `.bAw` are hidden but their exact purpose isn't documented. If
   something you expect is missing, comment that rule out first.
-- Per-account palettes rely on Gmail's avatar `aria-label` including the
-  email address. The Autumn colors can flash briefly while Gmail loads, and
-  the account falls back to Autumn if Google rewords that label.
+- Account themes rely on Gmail's avatar `aria-label` including the
+  email address. The default theme's colors can flash briefly while Gmail loads, and
+  the account falls back to the default theme if Google rewords that label.
 - The scrollbar color uses `::-webkit-scrollbar-thumb`, which Firefox ignores.
 
 ## Development notes
@@ -101,10 +124,19 @@ The theme has been developed iteratively with AI assistance (Claude).
   (category tabs and thread cards) were added. Tab selectors were chosen to
   match the specificity of Gmail's own `background: none !important` rule so
   the override wins.
+- **v2.1–2.3.** Ocean and Ember were added as per-account overrides on top of
+  the Autumn file, matched by email address so one shared Stylus can theme
+  several accounts. Every file gained
+  a `==UserStyle==` header after Stylus rejected pastes without one.
+- **v3.0.0 split.** With three palettes, Autumn was both the layout and the
+  default colors, and its variable names (`--gm-blue-unread` holding cream)
+  no longer matched. The layout moved to `Gmail_base.css`, each palette
+  became a short file in `themes/`, and the variables were renamed by role.
 
 ### Making changes
 
-1. Edit `Gmail_autumn.css`, test it live by pasting into Stylus.
+1. Edit `Gmail_base.css` (layout) or a file in `themes/` (colors), and test
+   it live by pasting into Stylus.
 2. Add an entry under **Unreleased** in [CHANGELOG.md](CHANGELOG.md).
 3. When releasing, move those entries under a new version heading, bump the
    version in this README, tag the commit (`git tag vX.Y.Z`) and publish a

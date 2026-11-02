@@ -6,6 +6,38 @@ All notable changes to this theme are recorded here. The format follows
 
 ## [Unreleased]
 
+Breaking: the single Autumn file is split into a layout base plus theme
+files. Existing Stylus styles need replacing (see **Upgrading** below).
+
+### Changed
+- **Layout and colors split.** `Gmail_base.css` holds all the layout,
+  shapes and spacing and sets no palette. Each color scheme is now a short
+  file in `themes/`: `autumn.css` (default, on `:root`), `ocean.css` and
+  `ember.css` (one account each, matched by email address).
+- **Variables renamed by role**, replacing names left over from the green
+  theme:
+  - `--gm-green` → `--gm-hover-soft`
+  - `--gm-green-strong` → `--gm-hover`
+  - `--gm-gray-selected` → `--gm-label-selected`
+  - `--gm-blue-link` → `--gm-label-text`
+  - `--gm-blue-unread` → `--gm-row-unread`
+  - `--gm-white-read` → `--gm-row-read`
+  - `--gm-yellow-selected` → `--gm-accent`
+- **Neutral fallbacks.** Every color in the base has a gray fallback, so
+  Gmail still looks reasonable with no theme installed.
+- README rewritten around the base + themes layout, with a variable
+  reference and steps for adding a theme.
+
+### Removed
+- `Gmail_autumn.css`, `Gmail_palette_ocean.css` and
+  `Gmail_palette_ember.css` (still available at tag `v2.3.0`).
+
+### Upgrading
+1. Add `Gmail_base.css` as a new Stylus style.
+2. Paste `themes/autumn.css` over your existing **Gmail Autumn** style.
+3. Paste `themes/ocean.css` over **Gmail Ocean** and `themes/ember.css` over
+   **Gmail Ember**, putting your email addresses back in.
+
 ## [2.3.0] — 2026-11-02 — Bolder subjects, Stylus headers
 
 ### Changed

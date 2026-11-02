@@ -1,0 +1,42 @@
+/* ==UserStyle==
+@name         Gmail Ocean
+@namespace    github.com/ckozlov-ASR/GMail_CSS
+@version      3.0.0
+@description  Ocean colors for Gmail Base: sky blue, slate, aqua, seafoam. For one Gmail account.
+@author       ckozlov-ASR
+==/UserStyle== */
+
+/* =========================================================
+   Gmail Theme — Ocean (one account)
+   =========================================================
+   Cool blues and seafoam with a deep navy selected-label link.
+   Needs Gmail_base.css, which supplies the layout and reads these
+   variables.
+
+   SETUP
+   Replace your.account@example.com below with the address of the
+   account that should use this theme (keep the quotes).
+
+   HOW IT PICKS THE ACCOUNT
+   Gmail's account avatar button (top right) has an aria-label
+   that includes the signed-in email address. The :has() selector
+   below matches the page only when that button mentions the
+   address. Its specificity (0,1,2) beats the plain :root of the
+   default Autumn theme (0,1,0), so style order in Stylus doesn't
+   matter. Until Gmail draws the avatar during page load, the
+   default theme's colors may flash briefly. If Google rewords that
+   aria-label, the match fails and the account falls back to the
+   default theme — right-click the avatar -> Inspect to check.
+   ========================================================= */
+
+@-moz-document domain("mail.google.com") {
+  html:has(a[aria-label*="your.account@example.com"]) {
+    --gm-hover-soft: rgba(135, 180, 210, 0.65);     /* soft sky blue — scrollbar thumb, Compose hover */
+    --gm-hover: rgba(110, 165, 200, 0.8);           /* deeper sky blue — row/label/tab hover */
+    --gm-label-selected: #8fb0c9;                   /* misty slate blue — selected sidebar label */
+    --gm-label-text: #0b2e59;                       /* deep navy — selected label text */
+    --gm-row-unread: rgba(214, 232, 245, 0.85);     /* pale aqua — unread rows */
+    --gm-row-read: #f5f9fc;                         /* cool off-white — read rows, thread cards */
+    --gm-accent: rgba(90, 180, 175, 0.45);          /* seafoam — selected row, active tab, thread header strip */
+  }
+}

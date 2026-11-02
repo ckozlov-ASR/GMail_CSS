@@ -1,0 +1,37 @@
+/* ==UserStyle==
+@name         Gmail Ember
+@namespace    github.com/ckozlov-ASR/GMail_CSS
+@version      3.0.0
+@description  Ember colors for Gmail Base: copper, rust, peach, flame orange. For one Gmail account.
+@author       ckozlov-ASR
+==/UserStyle== */
+
+/* =========================================================
+   Gmail Theme — Ember (one account)
+   =========================================================
+   Matched to a dark chocolate background with glowing copper and
+   orange swirls. Needs Gmail_base.css, which supplies the layout
+   and reads these variables.
+
+   SETUP
+   Replace your.account@example.com below with the address of the
+   account that should use this theme (keep the quotes).
+
+   HOW IT PICKS THE ACCOUNT
+   Same as themes/ocean.css: the :has() selector matches only when
+   Gmail's account avatar button mentions the address, and its
+   specificity (0,1,2) beats the default Autumn theme's :root
+   (0,1,0).
+   ========================================================= */
+
+@-moz-document domain("mail.google.com") {
+  html:has(a[aria-label*="your.account@example.com"]) {
+    --gm-hover-soft: rgba(214, 122, 52, 0.55);      /* copper — scrollbar thumb, Compose hover */
+    --gm-hover: rgba(196, 104, 40, 0.7);            /* deeper copper — row/label/tab hover */
+    --gm-label-selected: #c27a45;                   /* rust — selected sidebar label */
+    --gm-label-text: #2b1408;                       /* dark espresso — selected label text, readable on rust */
+    --gm-row-unread: rgba(250, 222, 195, 0.88);     /* warm peach — unread rows */
+    --gm-row-read: #fbf3ea;                         /* candlelight cream — read rows, thread cards */
+    --gm-accent: rgba(235, 140, 60, 0.5);           /* flame orange — selected row, active tab, thread header strip */
+  }
+}
