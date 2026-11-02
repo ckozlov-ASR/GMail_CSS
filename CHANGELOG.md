@@ -36,7 +36,8 @@ files. Existing Stylus styles need replacing (see **Upgrading** below).
   `Gmail_palette_ember.css` (still available at tag `v2.3.0`).
 
 ### Upgrading
-1. Add `Gmail_base.css` as a new Stylus style.
+1. Add `Gmail_base.css` as a new Stylus style (it's named **Base Gmail
+   CSS**).
 2. Paste `themes/autumn.css` over **Gmail Autumn**, `themes/ocean.css` over
    **Gmail Ocean** and `themes/ember.css` over **Gmail Ember**, then put
    each account's email address in (Autumn now needs one too).
