@@ -6,6 +6,11 @@ All notable changes to this theme are recorded here. The format follows
 
 ## [Unreleased]
 
+### Changed
+- **Bolder subject lines.** Read-message subjects go from normal (400) to
+  500, and unread subjects from 500 to 600, so unread stays heavier than
+  read.
+
 ## [2.2.0] — 2026-11-02 — Ember palette
 
 ### Added

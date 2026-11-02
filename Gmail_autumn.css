@@ -260,10 +260,21 @@
   vertical-align: middle !important;
 }
 
-/* Makes sender/subject text slightly bolder for readability. */
-.bqe,
+/* Makes sender text slightly bolder for readability. */
 .bq3 {
   font-weight: 500 !important;
+}
+
+/* Subject lines, one step bolder than Gmail's default.
+   .bog is the subject in every row; in unread rows Gmail wraps the
+   text in an inner .bqe. Unread subjects stay a step heavier than
+   read ones, so the two are still easy to tell apart. */
+.yO .bog {
+  font-weight: 500 !important;
+}
+
+.bqe {
+  font-weight: 600 !important;
 }
 
 /* Forces table display on these elements to fix layout/alignment
