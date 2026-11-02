@@ -19,9 +19,8 @@
 
    HOW IT PICKS THE ACCOUNT
    Same as themes/ocean.css: the :has() selector matches only when
-   Gmail's account avatar button mentions the address, and its
-   specificity (0,1,2) beats the default Autumn theme's :root
-   (0,1,0).
+   Gmail's account avatar button mentions the address. Accounts that
+   no theme matches get the base's neutral gray fallbacks.
    ========================================================= */
 
 @-moz-document domain("mail.google.com") {

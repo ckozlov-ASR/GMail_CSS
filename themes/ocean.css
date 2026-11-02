@@ -21,12 +21,12 @@
    Gmail's account avatar button (top right) has an aria-label
    that includes the signed-in email address. The :has() selector
    below matches the page only when that button mentions the
-   address. Its specificity (0,1,2) beats the plain :root of the
-   default Autumn theme (0,1,0), so style order in Stylus doesn't
-   matter. Until Gmail draws the avatar during page load, the
-   default theme's colors may flash briefly. If Google rewords that
-   aria-label, the match fails and the account falls back to the
-   default theme — right-click the avatar -> Inspect to check.
+   address. Its specificity (0,1,2) also beats a plain :root theme
+   (0,1,0), so style order in Stylus doesn't matter. Until Gmail
+   draws the avatar during page load, the base's neutral grays may
+   flash briefly. If Google rewords that aria-label, the match
+   fails and the account falls back to the base's neutral grays —
+   right-click the avatar -> Inspect to check.
    ========================================================= */
 
 @-moz-document domain("mail.google.com") {

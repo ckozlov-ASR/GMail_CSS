@@ -12,8 +12,11 @@ files. Existing Stylus styles need replacing (see **Upgrading** below).
 ### Changed
 - **Layout and colors split.** `Gmail_base.css` holds all the layout,
   shapes and spacing and sets no palette. Each color scheme is now a short
-  file in `themes/`: `autumn.css` (default, on `:root`), `ocean.css` and
-  `ember.css` (one account each, matched by email address).
+  file in `themes/`: `autumn.css`, `ocean.css` and `ember.css`.
+- **Autumn is now per-account too.** Like Ocean and Ember it applies to one
+  account matched by email address, instead of every account. Accounts
+  without a theme get the base's neutral grays; change a theme's selector
+  to `:root` to make it the default.
 - **Variables renamed by role**, replacing names left over from the green
   theme:
   - `--gm-green` → `--gm-hover-soft`
@@ -34,9 +37,9 @@ files. Existing Stylus styles need replacing (see **Upgrading** below).
 
 ### Upgrading
 1. Add `Gmail_base.css` as a new Stylus style.
-2. Paste `themes/autumn.css` over your existing **Gmail Autumn** style.
-3. Paste `themes/ocean.css` over **Gmail Ocean** and `themes/ember.css` over
-   **Gmail Ember**, putting your email addresses back in.
+2. Paste `themes/autumn.css` over **Gmail Autumn**, `themes/ocean.css` over
+   **Gmail Ocean** and `themes/ember.css` over **Gmail Ember**, then put
+   each account's email address in (Autumn now needs one too).
 
 ## [2.3.0] — 2026-11-02 — Bolder subjects, Stylus headers
 

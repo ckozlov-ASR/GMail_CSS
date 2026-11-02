@@ -2,26 +2,33 @@
 @name         Gmail Autumn
 @namespace    github.com/ckozlov-ASR/GMail_CSS
 @version      3.0.0
-@description  Autumn colors for Gmail Base: sage, taupe, cream, golden amber. Default for every account.
+@description  Autumn colors for Gmail Base: sage, taupe, cream, golden amber. For one Gmail account.
 @author       ckozlov-ASR
 ==/UserStyle== */
 
 /* =========================================================
-   Gmail Theme — Autumn (default)
+   Gmail Theme — Autumn (one account)
    =========================================================
    Warm palette pulled from a forest/foliage desktop background:
    sage greens, warm taupe and cream, golden amber.
    Needs Gmail_base.css, which supplies the layout and reads these
    variables.
 
-   This theme sits on plain :root, so it colors every Gmail account
-   that no other theme claims. Ocean and Ember use an email-matched
-   selector that outranks :root, so on their accounts they win no
-   matter what order the styles are in.
+   SETUP
+   Replace your.account@example.com below with the address of the
+   account that should use this theme (keep the quotes).
+
+   HOW IT PICKS THE ACCOUNT
+   Same as themes/ocean.css: the :has() selector matches only when
+   Gmail's account avatar button mentions the address. Accounts that
+   no theme matches get the base's neutral gray fallbacks.
+   To make Autumn the default for every unmatched account instead,
+   replace the html:has(...) selector with :root — the email-matched
+   themes outrank :root, so they still win on their own accounts.
    ========================================================= */
 
 @-moz-document domain("mail.google.com") {
-  :root {
+  html:has(a[aria-label*="your.account@example.com"]) {
     --gm-hover-soft: rgba(168, 186, 148, 0.65);     /* light sage — scrollbar thumb, Compose hover */
     --gm-hover: rgba(150, 172, 126, 0.8);           /* deeper sage — row/label/tab hover */
     --gm-label-selected: #a89a7a;                   /* warm taupe — selected sidebar label */

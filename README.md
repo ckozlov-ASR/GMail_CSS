@@ -12,11 +12,12 @@ Current version: **2.3.0** — see [CHANGELOG.md](CHANGELOG.md).
 | File | What it does |
 | --- | --- |
 | [`Gmail_base.css`](Gmail_base.css) | Layout and shapes for every account. Sets no palette; reads its colors from a theme. |
-| [`themes/autumn.css`](themes/autumn.css) | Sage, taupe, cream and golden amber. The **default**: colors every account no other theme claims. |
+| [`themes/autumn.css`](themes/autumn.css) | Sage, taupe, cream and golden amber, for **one account** matched by email address. |
 | [`themes/ocean.css`](themes/ocean.css) | Sky blue, slate, pale aqua and seafoam, for **one account** matched by email address. |
 | [`themes/ember.css`](themes/ember.css) | Copper, rust, peach and flame orange, for **one account** matched by email address. |
 
-Install the base once, plus Autumn and whichever account themes you use.
+Install the base once, plus one theme per account. Accounts without a
+theme get the base's neutral grays.
 
 ## What the base changes
 
@@ -42,8 +43,7 @@ Add-ons). Each file becomes its own Stylus style:
    header Stylus reports "Could not find metadata".
 3. Repeat for each file:
    - `Gmail_base.css` (always)
-   - `themes/autumn.css` (always: it's the default colors)
-   - `themes/ocean.css` and/or `themes/ember.css`, after replacing
+   - one file from `themes/` per account, after replacing
      `your.account@example.com` with that account's address
 4. Reload Gmail.
 
@@ -82,12 +82,14 @@ the seven colors, and add it to Stylus as another style.
 
 Account themes match the address in the `aria-label` of Gmail's account
 avatar button (top right), using
-`html:has(a[aria-label*="you@example.com"])`. That selector outranks the
-default theme's `:root`, so the account theme wins on its own account.
-This works whether your browser shares one Stylus across accounts or, like
-separate browser profiles, gives each its own. With separate
-profiles you can also skip the email match: change the selector to `:root`
-and install that theme only in that profile.
+`html:has(a[aria-label*="you@example.com"])`. This works whether your
+browser shares one Stylus across accounts or, like separate browser
+profiles, gives each its own.
+
+To give every unmatched account a default theme, change that theme's
+selector to `:root`. The email-matched selector outranks `:root`, so the
+other themes still win on their own accounts. With separate profiles you
+can likewise use `:root` and install the theme only in that profile.
 
 ### Shapes and spacing
 
@@ -104,8 +106,8 @@ are variables in the `:root` block at the top of `Gmail_base.css`.
 - `.Zt` and `.bAw` are hidden but their exact purpose isn't documented. If
   something you expect is missing, comment that rule out first.
 - Account themes rely on Gmail's avatar `aria-label` including the
-  email address. The default theme's colors can flash briefly while Gmail loads, and
-  the account falls back to the default theme if Google rewords that label.
+  email address. The base's neutral grays can flash briefly while Gmail
+  loads, and the account falls back to them if Google rewords that label.
 - The scrollbar color uses `::-webkit-scrollbar-thumb`, which Firefox ignores.
 
 ## Development notes
