@@ -6,6 +6,8 @@ All notable changes to this theme are recorded here. The format follows
 
 ## [Unreleased]
 
+## [2.1.0] — 2026-11-02 — Ocean palette
+
 ### Added
 - **Ocean palette** (`Gmail_palette_ocean.css`): sky blue, slate, pale aqua
   and seafoam colors with a deep navy selected-label link, applied on top of
@@ -74,6 +76,7 @@ First published version.
 - Section headers and comments throughout; selectors and values unchanged
   from the original uploaded stylesheet.
 
-[Unreleased]: https://github.com/ckozlov-ASR/GMail_CSS/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/ckozlov-ASR/GMail_CSS/compare/v2.1.0...HEAD
+[2.1.0]: https://github.com/ckozlov-ASR/GMail_CSS/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/ckozlov-ASR/GMail_CSS/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/ckozlov-ASR/GMail_CSS/releases/tag/v1.0.0
