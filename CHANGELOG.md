@@ -6,6 +6,8 @@ All notable changes to this theme are recorded here. The format follows
 
 ## [Unreleased]
 
+## [2.2.0] — 2026-11-02 — Ember palette
+
 ### Added
 - **Ember palette** (`Gmail_palette_ember.css`): copper hovers, a rust
   selected label with dark espresso text, peach unread rows, cream read rows
@@ -85,7 +87,8 @@ First published version.
 - Section headers and comments throughout; selectors and values unchanged
   from the original uploaded stylesheet.
 
-[Unreleased]: https://github.com/ckozlov-ASR/GMail_CSS/compare/v2.1.0...HEAD
+[Unreleased]: https://github.com/ckozlov-ASR/GMail_CSS/compare/v2.2.0...HEAD
+[2.2.0]: https://github.com/ckozlov-ASR/GMail_CSS/compare/v2.1.0...v2.2.0
 [2.1.0]: https://github.com/ckozlov-ASR/GMail_CSS/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/ckozlov-ASR/GMail_CSS/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/ckozlov-ASR/GMail_CSS/releases/tag/v1.0.0

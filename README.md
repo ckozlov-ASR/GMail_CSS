@@ -5,7 +5,7 @@ palette (sage green, taupe, cream, golden amber), roomier message rows,
 highlighted category tabs, and rounded "card" styling for messages in a
 thread.
 
-Current version: **2.1.0** — see [CHANGELOG.md](CHANGELOG.md).
+Current version: **2.2.0** — see [CHANGELOG.md](CHANGELOG.md).
 
 ## What it changes
 
