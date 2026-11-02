@@ -1,0 +1,48 @@
+/* =========================================================
+   Gmail Custom CSS — Ocean Palette (per-account override)
+   =========================================================
+   Recolors the Autumn theme (Gmail_autumn.css) with cool blues
+   and seafoam, but only for one Gmail account. Layout, shapes
+   and spacing still come from Gmail_autumn.css, so that file
+   must be installed too; this file only swaps its :root colors.
+
+   SETUP
+   Replace your.account@example.com below with the address of the
+   account that should use this palette (keep the quotes). Install
+   this as its own Stylus style, applying to the domain
+   mail.google.com, alongside Gmail_autumn.css.
+   For more accounts, copy this file and change the address and
+   colors in the copy.
+
+   HOW IT PICKS THE ACCOUNT
+   Gmail's account avatar button (top right) has an aria-label
+   that includes the signed-in email address. The :has() selector
+   below matches the page only when that button mentions the
+   address, so every other account keeps the Autumn colors.
+   Its specificity (0,1,2) beats the plain :root block in
+   Gmail_autumn.css (0,1,0), so the order of the two styles in
+   Stylus doesn't matter.
+   Caveats:
+   - Until Gmail draws the avatar button during page load, the
+     Autumn colors may flash briefly.
+   - If Google rewords that aria-label, the match fails and this
+     account falls back to Autumn. Right-click the avatar ->
+     Inspect to check the label still contains the address.
+
+   If your browser keeps a separate Stylus per account (e.g. one
+   browser profile per account), you don't need the email match:
+   replace the selector with :root and install this file only in
+   that account's profile.
+   ========================================================= */
+
+html:has(a[aria-label*="your.account@example.com"]) {
+  /* Variable names match Gmail_autumn.css; each comment says what
+     the color is used for there. */
+  --gm-green: rgba(135, 180, 210, 0.65);          /* soft sky blue — scrollbar thumb, Compose hover */
+  --gm-green-strong: rgba(110, 165, 200, 0.8);    /* deeper sky blue — row/label/tab hover */
+  --gm-gray-selected: #8fb0c9;                    /* misty slate blue — selected sidebar label */
+  --gm-blue-link: #0b2e59;                        /* deep navy — selected label text (more contrast on slate than #0000cc) */
+  --gm-blue-unread: rgba(214, 232, 245, 0.85);    /* pale aqua — unread message row background */
+  --gm-white-read: #f5f9fc;                       /* cool off-white — read rows, thread cards */
+  --gm-yellow-selected: rgba(90, 180, 175, 0.45); /* seafoam — selected row, active tab, thread header strip */
+}

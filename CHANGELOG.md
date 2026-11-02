@@ -6,6 +6,14 @@ All notable changes to this theme are recorded here. The format follows
 
 ## [Unreleased]
 
+### Added
+- **Ocean palette** (`Gmail_palette_ocean.css`): sky blue, slate, pale aqua
+  and seafoam colors with a deep navy selected-label link, applied on top of
+  the Autumn theme for a single Gmail account, matched by the email address
+  in the account avatar's `aria-label`.
+- README section on giving each Gmail account its own colors, including the
+  separate-browser-profile setup.
+
 ## [2.0.0] — 2026-11-02 — Autumn theme
 
 A full restyle of the green theme around a warm autumn palette, plus two new

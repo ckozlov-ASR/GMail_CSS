@@ -39,6 +39,22 @@ All colors, the corner radius, the sidebar font and the hover transition are
 defined once as CSS custom properties in the `:root` block at the top of the
 file. Edit those values to retune the whole theme.
 
+### Different colors per Gmail account
+
+[`Gmail_palette_ocean.css`](Gmail_palette_ocean.css) recolors the theme with
+cool blues and seafoam for one account only. It overrides just the `:root`
+colors, so install it as a second Stylus style next to `Gmail_autumn.css`
+(both applying to `mail.google.com`):
+
+1. Replace `your.account@example.com` in the file with that account's address.
+2. Add it in Stylus as a new style for `mail.google.com`.
+
+The style matches the address in the `aria-label` of Gmail's account avatar
+button, so other accounts keep the Autumn colors. If each account has its
+own Stylus (for example one browser profile per account), replace
+the selector with `:root` and install the palette only in that profile. For
+more accounts, copy the file and change the address and colors.
+
 Some variable names (`--gm-blue-unread`, `--gm-gray-selected`,
 `--gm-yellow-selected`, `--gm-white-read`) date from the original green
 theme and describe what each one styles, not its current color.
@@ -52,6 +68,9 @@ theme and describe what each one styles, not its current color.
   developer tools.
 - `.Zt` and `.bAw` are hidden but their exact purpose isn't documented. If
   something you expect is missing, comment that rule out first.
+- Per-account palettes rely on Gmail's avatar `aria-label` including the
+  email address. The Autumn colors can flash briefly while Gmail loads, and
+  the account falls back to Autumn if Google rewords that label.
 - The scrollbar color uses `::-webkit-scrollbar-thumb`, which Firefox ignores.
 
 ## Development notes
