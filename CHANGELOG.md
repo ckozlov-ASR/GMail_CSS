@@ -6,6 +6,15 @@ All notable changes to this theme are recorded here. The format follows
 
 ## [Unreleased]
 
+### Added
+- **Ember palette** (`Gmail_palette_ember.css`): copper hovers, a rust
+  selected label with dark espresso text, peach unread rows, cream read rows
+  and flame-orange highlights, matched to a dark chocolate-and-copper Gmail
+  background. Applies to one Gmail account, like the Ocean palette.
+- The Ember file includes a Stylus `==UserStyle==` header and an
+  `@-moz-document` block, so pasting it into Stylus no longer triggers the
+  "change the value of @name or @namespace" error.
+
 ## [2.1.0] — 2026-11-02 — Ocean palette
 
 ### Added

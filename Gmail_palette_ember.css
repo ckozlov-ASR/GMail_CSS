@@ -1,0 +1,48 @@
+/* ==UserStyle==
+@name         Gmail Ember
+@namespace    github.com/ckozlov-ASR/GMail_CSS
+@version      2.2.0
+@description  Ember palette override for one Gmail account (needs Gmail Autumn)
+@author       ckozlov-ASR
+==/UserStyle== */
+
+/* =========================================================
+   Gmail Custom CSS — Ember Palette (per-account override)
+   =========================================================
+   Recolors the Autumn theme (Gmail_autumn.css) to match a dark
+   chocolate background with glowing copper and orange swirls:
+   copper hovers, a rust selected label, peach and cream rows,
+   and flame-orange highlights. Layout, shapes and spacing still
+   come from Gmail_autumn.css, so that file must be installed
+   too; this file only swaps its :root colors.
+
+   SETUP
+   Replace your.account@example.com below with the address of the
+   account that should use this palette (keep the quotes), then
+   paste this whole file, header included, into a new Stylus style.
+   The ==UserStyle== header gives it its own name, so Stylus won't
+   mistake it for the Autumn style, and @-moz-document limits it
+   to Gmail.
+
+   HOW IT PICKS THE ACCOUNT
+   Same as Gmail_palette_ocean.css: the :has() selector matches
+   only when Gmail's account avatar button mentions the address,
+   and its specificity (0,1,2) beats the :root block in
+   Gmail_autumn.css (0,1,0). With one Stylus per account (e.g.
+   one browser profile per account), replace the selector with
+   :root and install this only in that account's profile.
+   ========================================================= */
+
+@-moz-document domain("mail.google.com") {
+  html:has(a[aria-label*="your.account@example.com"]) {
+    /* Variable names match Gmail_autumn.css; each comment says what
+       the color is used for there. */
+    --gm-green: rgba(214, 122, 52, 0.55);           /* copper — scrollbar thumb, Compose hover */
+    --gm-green-strong: rgba(196, 104, 40, 0.7);     /* deeper copper — row/label/tab hover */
+    --gm-gray-selected: #c27a45;                    /* rust — selected sidebar label */
+    --gm-blue-link: #2b1408;                        /* dark espresso — selected label text, readable on rust */
+    --gm-blue-unread: rgba(250, 222, 195, 0.88);    /* warm peach — unread message row background */
+    --gm-white-read: #fbf3ea;                       /* candlelight cream — read rows, thread cards */
+    --gm-yellow-selected: rgba(235, 140, 60, 0.5);  /* flame orange — selected row, active tab, thread header strip */
+  }
+}

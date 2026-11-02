@@ -55,6 +55,13 @@ own Stylus (for example one browser profile per account), replace
 the selector with `:root` and install the palette only in that profile. For
 more accounts, copy the file and change the address and colors.
 
+[`Gmail_palette_ember.css`](Gmail_palette_ember.css) works the same way with
+copper, rust, peach and flame-orange colors, made to sit on a dark
+chocolate-and-copper Gmail background. It starts with a Stylus
+`==UserStyle==` header and an `@-moz-document` block, so paste the whole
+file into a new style and it gets its own name ("Gmail Ember") instead of
+clashing with an existing style.
+
 Some variable names (`--gm-blue-unread`, `--gm-gray-selected`,
 `--gm-yellow-selected`, `--gm-white-read`) date from the original green
 theme and describe what each one styles, not its current color.
