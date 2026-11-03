@@ -158,9 +158,8 @@ The theme has been developed iteratively with AI assistance (Claude).
   several accounts. Every file gained
   a `==UserStyle==` header after Stylus rejected pastes without one.
 - **v3.0.0 split.** With three palettes, Autumn was both the layout and the
-  default colors, and its variable names (`--gm-blue-unread` holding cream)
-  no longer matched. The layout moved to `Gmail_base.css`, each palette
-  became a short file in `themes/`, and the variables were renamed by role.
+  default colors. The layout moved to its own base file, each palette
+  became a short file in `themes/`, and the variables were named by role.
 
 ### Making changes
 

@@ -38,23 +38,10 @@ files. Existing Stylus styles need replacing (see **Upgrading** below).
   account matched by email address, instead of every account. Accounts
   without a theme get the base's neutral grays; change a theme's selector
   to `:root` to make it the default.
-- **Variables renamed by role**, replacing names left over from the green
-  theme:
-  - `--gm-green` → `--gm-hover-soft`
-  - `--gm-green-strong` → `--gm-hover`
-  - `--gm-gray-selected` → `--gm-label-selected`
-  - `--gm-blue-link` → `--gm-label-text`
-  - `--gm-blue-unread` → `--gm-row-unread`
-  - `--gm-white-read` → `--gm-row-read`
-  - `--gm-yellow-selected` → `--gm-accent`
 - **Neutral fallbacks.** Every color in the base has a gray fallback, so
   Gmail still looks reasonable with no theme installed.
 - README rewritten around the base + themes layout, with a variable
   reference and steps for adding a theme.
-
-### Removed
-- `Gmail_autumn.css`, `Gmail_palette_ocean.css` and
-  `Gmail_palette_ember.css` (still available at tag `v2.3.0`).
 
 ### Upgrading
 1. Add `Gmail_base.css` as a new Stylus style (it's named **Base Gmail
@@ -137,9 +124,6 @@ styled areas.
   translucent white wash (`rgba(255,255,255,0.3)`) over each label. The label
   background is now transparent, so icons render at full strength and the
   selected/hover colors show cleanly.
-
-### Removed
-- `Gmail1_green.css` (still available at tag `v1.0.0`).
 
 ## [1.0.0] — 2026-04-18 — Green theme
 
