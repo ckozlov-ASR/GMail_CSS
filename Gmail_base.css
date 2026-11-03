@@ -2,12 +2,12 @@
 @name         Base Gmail CSS
 @namespace    github.com/ckozlov-ASR/GMail_CSS
 @version      3.0.0
-@description  Gmail CSS Swatches base. Gmail layout and shapes: roomier rows, tab highlights, thread cards. Colors come from a swatch (theme) style.
+@description  GMail Swatches base. Gmail layout and shapes: roomier rows, tab highlights, thread cards. Colors come from a swatch (theme) style.
 @author       ckozlov-ASR
 ==/UserStyle== */
 
 /* =========================================================
-   Gmail CSS Swatches — Base (layout and shapes)
+   GMail Swatches — Base (layout and shapes)
    =========================================================
    Overview of what this file changes in Gmail's UI:
      1) Scrollbar thumb

@@ -7,7 +7,7 @@ All notable changes to this theme are recorded here. The format follows
 ## [Unreleased]
 
 ### Changed
-- **New name: Gmail CSS Swatches.** The project, README and style
+- **New name: GMail Swatches.** The project, README and style
   descriptions use the new name, and each theme is now called a swatch.
   Style `@name`s are unchanged, so pasting an update over an installed
   style still works.
@@ -163,10 +163,10 @@ First published version.
 - Section headers and comments throughout; selectors and values unchanged
   from the original uploaded stylesheet.
 
-[Unreleased]: https://github.com/ckozlov-ASR/GMail_CSS/compare/v3.0.0...HEAD
-[3.0.0]: https://github.com/ckozlov-ASR/GMail_CSS/compare/v2.3.0...v3.0.0
-[2.3.0]: https://github.com/ckozlov-ASR/GMail_CSS/compare/v2.2.0...v2.3.0
-[2.2.0]: https://github.com/ckozlov-ASR/GMail_CSS/compare/v2.1.0...v2.2.0
-[2.1.0]: https://github.com/ckozlov-ASR/GMail_CSS/compare/v2.0.0...v2.1.0
-[2.0.0]: https://github.com/ckozlov-ASR/GMail_CSS/compare/v1.0.0...v2.0.0
-[1.0.0]: https://github.com/ckozlov-ASR/GMail_CSS/releases/tag/v1.0.0
+[Unreleased]: https://github.com/ckozlov-ASR/GMail-Swatches/compare/v3.0.0...HEAD
+[3.0.0]: https://github.com/ckozlov-ASR/GMail-Swatches/compare/v2.3.0...v3.0.0
+[2.3.0]: https://github.com/ckozlov-ASR/GMail-Swatches/compare/v2.2.0...v2.3.0
+[2.2.0]: https://github.com/ckozlov-ASR/GMail-Swatches/compare/v2.1.0...v2.2.0
+[2.1.0]: https://github.com/ckozlov-ASR/GMail-Swatches/compare/v2.0.0...v2.1.0
+[2.0.0]: https://github.com/ckozlov-ASR/GMail-Swatches/compare/v1.0.0...v2.0.0
+[1.0.0]: https://github.com/ckozlov-ASR/GMail-Swatches/releases/tag/v1.0.0

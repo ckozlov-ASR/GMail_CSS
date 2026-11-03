@@ -1,4 +1,4 @@
-# Gmail CSS Swatches
+# GMail Swatches
 
 Custom styles that reskin the Gmail web interface: roomier message rows,
 highlighted category tabs, rounded "card" styling for messages in a thread,
