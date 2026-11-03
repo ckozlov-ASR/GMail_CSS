@@ -52,7 +52,7 @@ the styles only apply to Gmail, and the order of styles in Stylus doesn't
 matter.
 
 To update, paste the latest version of a file over its style. Re-enter your
-email address in Ocean or Ember when you do.
+email address in each theme when you do.
 
 ## Customizing
 
@@ -167,7 +167,7 @@ The theme has been developed iteratively with AI assistance (Claude).
    it live by pasting into Stylus.
 2. Add an entry under **Unreleased** in [CHANGELOG.md](CHANGELOG.md).
 3. When releasing, move those entries under a new version heading, bump the
-   version in this README, tag the commit (`git tag vX.Y.Z`) and publish a
+   version in this README and in each file's `@version` line, tag the commit (`git tag vX.Y.Z`) and publish a
    GitHub Release from the tag.
 
 Versions follow [Semantic Versioning](https://semver.org/): a new major
