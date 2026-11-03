@@ -29,7 +29,7 @@ theme get the base's neutral grays.
 | Message list | Separate unread, read and selected row colors, hover color |
 | Category tabs | Accent background on the active Primary/Promotions/Updates tab, themed underline and hover |
 | Thread view | Each message is a rounded card with a pale tinted sender/date strip and an accent underline |
-| Density | Taller two-line rows (subject above preview), bolder sender and subject text, right-hand side panel hidden |
+| Density | Taller two-line rows (subject above preview), bolder sender and subject text |
 
 ## Installing
 
@@ -131,8 +131,8 @@ These settings are in the **Settings you can change** block at the top of
   silently stops applying. The comments in the stylesheet say what each
   selector targets, to make them easier to re-find with the browser's
   developer tools.
-- The right-hand side panel (Calendar, Keep, Tasks) is hidden with `.bAw`.
-  Delete it from that rule in the base to bring the panel back.
+- To hide Gmail's right-hand side panel (Calendar, Keep, Tasks), add
+  `.bAw` to the `.Zt` rule at the end of the base.
 - Account themes rely on Gmail's avatar `aria-label` including the
   email address. The base's neutral grays can flash briefly while Gmail
   loads, and the account falls back to them if Google rewords that label.

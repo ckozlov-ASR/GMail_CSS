@@ -17,7 +17,7 @@
      4b) Primary/Promotions/Updates tab highlight + hover
      4c) Thread view as rounded cards
      5) Row height, text weight, layout fixes, and hiding
-        a couple of minor UI elements
+        the subject/preview separator
 
    This file sets no palette of its own. Every color is a
    var(--gm-...) supplied by a theme style in themes/ (Autumn,
@@ -351,14 +351,12 @@
   padding-right: 0.25rem !important;
 }
 
-/* Hides two Gmail elements:
-   .Zt  the " - " between subject and preview, not needed now that
-        the preview has its own line
-   .bAw the right-hand side panel (Calendar, Keep, Tasks icons)
-   Both are auto-generated class names that could change after a
-   Gmail update. Delete .bAw from this rule to bring the panel back. */
-.Zt,
-.bAw {
+/* Hides the " - " between subject and preview (.Zt), not needed now
+   that the preview has its own line. To also hide Gmail's right-hand
+   side panel (Calendar, Keep, Tasks icons), change the selector to
+   ".Zt, .bAw". Both are auto-generated class names that could change
+   after a Gmail update. */
+.Zt {
   display: none !important;
 }
 

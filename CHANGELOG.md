@@ -25,6 +25,10 @@ All notable changes to this theme are recorded here. The format follows
   applied to hovered folders), `--gm-row-height` (inbox row height) and
   `--gm-label-font-size` (sidebar text size), replacing fixed values.
 
+### Fixed
+- **Side panel shows again.** The base no longer hides Gmail's right-hand
+  side panel (Calendar, Keep, Tasks icons).
+
 ## [3.0.0] — 2026-11-02 — Base + themes
 
 Breaking: the single Autumn file is split into a layout base plus theme
