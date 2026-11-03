@@ -115,9 +115,14 @@
 }
 
 /* Hover state: fills with the theme's soft hover color and drops the
-   default shadow. */
+   default shadow. The color is laid over solid white so the Gmail
+   background image can't show through and fade the button, and the
+   text is kept dark because Gmail turns it gray on hover. */
 .T-I-KE:hover {
-  background: var(--gm-hover-soft, rgba(0, 0, 0, 0.2)) !important;
+  background:
+    linear-gradient(var(--gm-hover-soft, rgba(0, 0, 0, 0.2)), var(--gm-hover-soft, rgba(0, 0, 0, 0.2))),
+    white !important;
+  color: #202124 !important;
   box-shadow: none;
 }
 

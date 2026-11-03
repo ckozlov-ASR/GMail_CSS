@@ -26,6 +26,9 @@ All notable changes to this theme are recorded here. The format follows
   `--gm-label-font-size` (sidebar text size), replacing fixed values.
 
 ### Fixed
+- **Readable Compose hover.** Hovering Compose no longer looks faded: the
+  theme color now sits on solid white instead of letting the Gmail
+  background show through, and the text stays dark.
 - **Side panel shows again.** The base no longer hides Gmail's right-hand
   side panel (Calendar, Keep, Tasks icons).
 
