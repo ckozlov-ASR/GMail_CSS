@@ -5,7 +5,7 @@ highlighted category tabs, rounded "card" styling for messages in a thread,
 and a choice of color themes (the swatches), with a different swatch per
 Gmail account if you like.
 
-Current version: **3.0.0** — see [CHANGELOG.md](CHANGELOG.md).
+Current version: **3.1.0** — see [CHANGELOG.md](CHANGELOG.md).
 
 ## How it's organized
 
@@ -167,8 +167,8 @@ The theme has been developed iteratively with AI assistance (Claude).
    it live by pasting into Stylus.
 2. Add an entry under **Unreleased** in [CHANGELOG.md](CHANGELOG.md).
 3. When releasing, move those entries under a new version heading, bump the
-   version in this README and in each file's `@version` line, tag the commit (`git tag vX.Y.Z`) and publish a
-   GitHub Release from the tag.
+   version in this README and in each file's `@version` line, tag the commit
+   (`git tag vX.Y.Z`) and publish a GitHub Release from the tag.
 
 Versions follow [Semantic Versioning](https://semver.org/): a new major
 version for a palette or layout overhaul, minor for new styled areas, patch

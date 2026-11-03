@@ -6,6 +6,8 @@ All notable changes to this theme are recorded here. The format follows
 
 ## [Unreleased]
 
+## [3.1.0] — 2026-11-03 — Easier settings, softer headers
+
 ### Changed
 - **Softer thread header.** The sender/date strip on each message in a
   thread now uses a pale tint of the theme color instead of the full accent,
@@ -149,7 +151,8 @@ First published version.
 - Section headers and comments throughout; selectors and values unchanged
   from the original uploaded stylesheet.
 
-[Unreleased]: https://github.com/ckozlov-ASR/Gmail-Swatches/compare/v3.0.0...HEAD
+[Unreleased]: https://github.com/ckozlov-ASR/Gmail-Swatches/compare/v3.1.0...HEAD
+[3.1.0]: https://github.com/ckozlov-ASR/Gmail-Swatches/compare/v3.0.0...v3.1.0
 [3.0.0]: https://github.com/ckozlov-ASR/Gmail-Swatches/compare/v2.3.0...v3.0.0
 [2.3.0]: https://github.com/ckozlov-ASR/Gmail-Swatches/compare/v2.2.0...v2.3.0
 [2.2.0]: https://github.com/ckozlov-ASR/Gmail-Swatches/compare/v2.1.0...v2.2.0
