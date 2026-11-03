@@ -16,8 +16,8 @@
      4) Message rows (unread, read, selected) + hover
      4b) Primary/Promotions/Updates tab highlight + hover
      4c) Thread view as rounded cards
-     5) Text weight, a padding fix, and hiding a couple of
-        minor UI elements
+     5) Text weight, a padding fix, and hiding Gmail's
+        right-hand side panel
 
    This file sets no palette of its own. Every color is a
    var(--gm-...) supplied by a theme style in themes/ (Autumn,
@@ -330,13 +330,9 @@
   padding-right: 0.25rem !important;
 }
 
-/* Hides a couple of minor Gmail UI elements.
-   NOTE: .Zt and .bAw are Gmail's obfuscated, auto-generated class
-   names, not semantic ones, so their exact purpose isn't documented
-   here and could shift if Google changes the DOM. If something you
-   expect to see goes missing after a Gmail update, comment these out
-   one at a time to find which rule is responsible. */
-.Zt,
+/* Hides Gmail's right-hand side panel (Calendar, Keep, Tasks icons).
+   .bAw is an auto-generated class name and could change after a Gmail
+   update; delete this rule to bring the panel back. */
 .bAw {
   display: none !important;
 }

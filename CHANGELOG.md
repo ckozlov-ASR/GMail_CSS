@@ -25,6 +25,11 @@ All notable changes to this theme are recorded here. The format follows
   applied to hovered folders) and `--gm-label-font-size` (sidebar text
   size), replacing fixed values.
 
+### Fixed
+- **Subject and preview run together.** The " - " between a message's
+  subject and its preview text is no longer hidden, now that both sit on
+  one line.
+
 ### Removed
 - **Row height.** The base no longer makes inbox rows taller; use Gmail's
   own Settings (gear icon) → Density instead.
