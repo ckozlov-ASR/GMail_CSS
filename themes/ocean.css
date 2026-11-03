@@ -17,6 +17,19 @@
    Replace your.account@example.com below with the address of the
    account that should use this theme (keep the quotes).
 
+   CHANGING COLORS (no coding needed)
+   Every setting below has a note saying what it colors and how to
+   adjust it. Colors are written one of two ways:
+   - rgba(R, G, B, S) — the first three numbers (each 0–255) are the
+     color; the last number is its strength, from 0 (invisible) to
+     1 (solid). To make a color lighter or darker, change only that
+     last number; each note suggests a range.
+   - #rrggbb — a solid color code, such as #a89a7a.
+   To choose a new color, search the web for "color picker", pick a
+   color, and copy its RGB numbers or its # code into the line.
+   Change only the numbers or the code: keep the commas, brackets and
+   the semicolon at the end. Save in Stylus and Gmail updates at once.
+
    HOW IT PICKS THE ACCOUNT
    Gmail's account avatar button (top right) has an aria-label
    that includes the signed-in email address. The :has() selector
@@ -31,13 +44,43 @@
 
 @-moz-document domain("mail.google.com") {
   html:has(a[aria-label*="your.account@example.com"]) {
-    --gm-hover-soft: rgba(135, 180, 210, 0.65);     /* soft sky blue — scrollbar thumb, Compose hover */
-    --gm-hover: rgba(110, 165, 200, 0.8);           /* deeper sky blue — row/label/tab hover */
-    --gm-label-selected: #8fb0c9;                   /* misty slate blue — selected sidebar label */
-    --gm-label-text: #0b2e59;                       /* deep navy — selected label text */
-    --gm-row-unread: rgba(214, 232, 245, 0.85);     /* pale aqua — unread rows */
-    --gm-row-read: #f5f9fc;                         /* cool off-white — read rows, thread cards */
-    --gm-accent: rgba(90, 180, 175, 0.45);          /* seafoam — selected row, active tab, thread header underline */
-    --gm-thread-header: rgba(90, 180, 175, 0.16);   /* pale seafoam — thread header strip */
+    /* Soft hover: soft sky blue. Colors the scrollbar and the Compose
+       button when you point at it.
+       Strength: 0.4 subtle … 0.65 now … 0.9 strong */
+    --gm-hover-soft: rgba(135, 180, 210, 0.65);
+
+    /* Hover: deeper sky blue. Colors a message row, sidebar label or
+       tab when you point at it.
+       Strength: 0.5 subtle … 0.8 now … 1 solid */
+    --gm-hover: rgba(110, 165, 200, 0.8);
+
+    /* Selected label: misty slate blue. Background of the open folder
+       in the sidebar (e.g. Inbox). Solid color — pick a lighter or
+       darker code to adjust. */
+    --gm-label-selected: #8fb0c9;
+
+    /* Selected label text: deep navy. Text of the open folder in the
+       sidebar. Keep it dark enough to read on the color above. */
+    --gm-label-text: #0b2e59;
+
+    /* Unread rows: pale aqua. Background of unread messages.
+       Strength: 0.5 faint … 0.85 now … 1 solid */
+    --gm-row-unread: rgba(214, 232, 245, 0.85);
+
+    /* Read rows: cool off-white. Background of read messages and of
+       each message card in a conversation. Solid color — keep it
+       very light so text stays readable. */
+    --gm-row-read: #f5f9fc;
+
+    /* Accent: seafoam. Selected (ticked) rows, the active
+       Primary/Promotions/Updates tab, and the line under each message
+       header in a conversation.
+       Strength: 0.3 subtle … 0.45 now … 0.7 strong */
+    --gm-accent: rgba(90, 180, 175, 0.45);
+
+    /* Thread header: pale seafoam. Strip behind the sender and date at
+       the top of each message in a conversation.
+       Strength: 0.10 lighter … 0.16 now … 0.30 darker */
+    --gm-thread-header: rgba(90, 180, 175, 0.16);
   }
 }

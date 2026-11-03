@@ -14,6 +14,16 @@ All notable changes to this theme are recorded here. The format follows
   theme; themes without it fall back to the full accent.
 - **Rounded selected label.** The selected sidebar label (e.g. Inbox) has
   a rounded right end again, matching the shape of a hovered label.
+- **Plain-English settings notes.** Every color in the themes and every
+  shape, size and speed setting in the base now has a note saying what it
+  changes and a suggested range (e.g. "Strength: 0.10 lighter … 0.30
+  darker"), plus a short "how to change colors" guide at the top of each
+  theme, so no CSS knowledge is needed to adjust them.
+
+### Added
+- **New base settings:** `--gm-label-radius` (sidebar folder rounding, also
+  applied to hovered folders), `--gm-row-height` (inbox row height) and
+  `--gm-label-font-size` (sidebar text size), replacing fixed values.
 
 ## [3.0.0] — 2026-11-02 — Base + themes
 

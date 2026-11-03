@@ -56,6 +56,23 @@ email address in Ocean or Ember when you do.
 
 ## Customizing
 
+You can change colors, sizes and rounding without knowing CSS. Every
+setting in the files has a plain-English note above it saying what it
+changes and a suggested range, for example:
+
+```css
+/* Thread header: pale amber. Strip behind the sender and date at
+   the top of each message in a conversation.
+   Strength: 0.10 lighter … 0.18 now … 0.30 darker */
+--gm-thread-header: rgba(230, 180, 90, 0.18);
+```
+
+Edit the value in your Stylus style, keeping the punctuation as it is, and
+save; Gmail updates immediately. In `rgba(R, G, B, S)` colors, the last
+number is the strength, from 0 (invisible) to 1 (solid). To choose a new
+color, search the web for "color picker" and copy its RGB numbers or
+`#` code.
+
 ### Theme colors
 
 Each theme sets the same eight variables, named for what they color:
@@ -94,8 +111,18 @@ can likewise use `:root` and install the theme only in that profile.
 
 ### Shapes and spacing
 
-Corner radius, sidebar font, the Compose border and the hover transition
-are variables in the `:root` block at the top of `Gmail_base.css`.
+These settings are in the **Settings you can change** block at the top of
+`Gmail_base.css` and apply to every theme:
+
+| Variable | What it changes | Range |
+| --- | --- | --- |
+| `--gm-radius` | Rounding of Compose, tabs and message cards | 0px square … 14px … 24px very round |
+| `--gm-label-radius` | Rounding of the selected/hovered sidebar folder's right end | 0px … 16px … 20px full pill |
+| `--gm-row-height` | Height of each inbox row | 40px compact … 50px … 64px roomy |
+| `--gm-label-font-size` | Sidebar folder name size | 13px … 14px … 16px |
+| `--gm-font-stack` | Sidebar folder name font | Any installed fonts, `sans-serif` last |
+| `--gm-transition` | How fast hover colors fade in | 0s instant … 0.15s … 0.4s slow |
+| `--gm-border-subtle` | Compose button border strength | last number 0 … 0.1 … 0.3 |
 
 ## Known limitations
 

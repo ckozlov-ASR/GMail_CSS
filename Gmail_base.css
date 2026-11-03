@@ -47,12 +47,44 @@
 
 @-moz-document domain("mail.google.com") {
 
+/* ---------------------------------------------------------
+   SETTINGS YOU CAN CHANGE (no coding needed)
+   These shape, size and speed settings apply to every theme.
+   Each one has a note saying what it does and a suggested range.
+   Change only the number (keep "px", "s", the commas and the
+   semicolon), save in Stylus, and Gmail updates at once.
+   Colors live in the theme styles (themes/*.css), not here.
+   --------------------------------------------------------- */
 :root {
-  /* Shape and motion settings shared by every theme. */
-  --gm-border-subtle: 1px solid rgba(0, 0, 0, 0.1); /* faint border used on the Compose button */
-  --gm-radius: 14px;                              /* corner rounding used on Compose, tabs, thread cards */
-  --gm-font-stack: 'Segoe UI', 'Open Sans', sans-serif; /* sidebar label font */
-  --gm-transition: background-color 0.15s ease;   /* eases hover color changes instead of snapping */
+  /* Corner rounding of the Compose button, the tabs and each message
+     card in a conversation.
+     Range: 0px square … 14px now … 24px very round */
+  --gm-radius: 14px;
+
+  /* Rounding of the right end of the selected and hovered folder in
+     the sidebar (e.g. Inbox).
+     Range: 0px square … 16px now (Gmail's own) … 20px full pill */
+  --gm-label-radius: 16px;
+
+  /* Height of each message row in the inbox list.
+     Range: 40px compact … 50px now … 64px roomy */
+  --gm-row-height: 50px;
+
+  /* Text size of the folder names in the sidebar.
+     Range: 13px small … 14px now … 16px large */
+  --gm-label-font-size: 14px;
+
+  /* Font of the folder names in the sidebar. The first font your
+     computer has is used; keep "sans-serif" last as the backup. */
+  --gm-font-stack: 'Segoe UI', 'Open Sans', sans-serif;
+
+  /* How quickly hover colors fade in.
+     Range: 0s instant … 0.15s now … 0.4s slow */
+  --gm-transition: background-color 0.15s ease;
+
+  /* Thin border around the Compose button. The last number is its
+     strength: 0 none … 0.1 now … 0.3 darker */
+  --gm-border-subtle: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 
@@ -103,7 +135,7 @@
 .ain {
   background-color: var(--gm-label-selected, #e5e5e5) !important;
   border-left: 2px solid var(--gm-label-selected, #e5e5e5) !important;
-  border-radius: 0 16px 16px 0 !important;
+  border-radius: 0 var(--gm-label-radius) var(--gm-label-radius) 0 !important;
 }
 
 /* Selected label's text: themed color and underlined, so it still
@@ -120,7 +152,7 @@
    and .TO:hover (below) show their colors cleanly. */
 .TO {
   font-family: var(--gm-font-stack) !important;
-  font-size: 14px !important;
+  font-size: var(--gm-label-font-size) !important;
   background-color: transparent !important;
   transition: var(--gm-transition);
 }
@@ -129,6 +161,7 @@
    message-row and tab hovers below, so all hover states move together. */
 .TO:hover {
   background: var(--gm-hover, rgba(0, 0, 0, 0.06)) !important;
+  border-radius: 0 var(--gm-label-radius) var(--gm-label-radius) 0 !important;
 }
 
 
@@ -281,7 +314,7 @@
 /* Increases row height for a roomier, less cramped message list. */
 .zF,
 .xY {
-  min-height: 50px !important;
+  min-height: var(--gm-row-height) !important;
 }
 
 /* Vertically centers content within those taller rows. */
