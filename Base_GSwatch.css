@@ -2,7 +2,7 @@
 @name         Base Gmail CSS
 @namespace    github.com/ckozlov-ASR/GMail_CSS
 @version      3.0.0
-@description  Gmail Swatches base. Gmail layout and shapes: bolder subjects, tab highlights, thread cards. Colors come from a swatch (theme) style.
+@description  Gmail Swatches base. Gmail layout and shapes: roomier rows, tab highlights, thread cards. Colors come from a swatch (theme) style.
 @author       ckozlov-ASR
 ==/UserStyle== */
 
@@ -16,8 +16,8 @@
      4) Message rows (unread, read, selected) + hover
      4b) Primary/Promotions/Updates tab highlight + hover
      4c) Thread view as rounded cards
-     5) Text weight, a padding fix, and hiding Gmail's
-        right-hand side panel
+     5) Row height, text weight, layout fixes, and hiding
+        a couple of minor UI elements
 
    This file sets no palette of its own. Every color is a
    var(--gm-...) supplied by a theme style in themes/ (Autumn,
@@ -65,6 +65,10 @@
      the sidebar (e.g. Inbox).
      Range: 0px square … 16px now (Gmail's own) … 20px full pill */
   --gm-label-radius: 16px;
+
+  /* Height of each message row in the inbox list.
+     Range: 40px compact … 50px now … 64px roomy */
+  --gm-row-height: 50px;
 
   /* Text size of the folder names in the sidebar.
      Range: 13px small … 14px now … 16px large */
@@ -304,9 +308,19 @@
 
 
 /* =========================================================
-   5) Text Weight and Small Fixes
-   Row height is left to Gmail: Settings (gear icon) -> Density.
+   5) Layout / Density Tweaks
    ========================================================= */
+
+/* Increases row height for a roomier, less cramped message list. */
+.zF,
+.xY {
+  min-height: var(--gm-row-height) !important;
+}
+
+/* Vertically centers content within those taller rows. */
+.xY {
+  vertical-align: middle !important;
+}
 
 /* Makes sender text slightly bolder for readability. */
 .bq3 {
@@ -325,14 +339,25 @@
   font-weight: 600 !important;
 }
 
+/* Two-line rows: puts the subject on the first line and the preview
+   text on a second line underneath, using the taller rows above. */
+.y6,
+.xT {
+  display: table !important;
+}
+
 /* Adds a touch of right padding so message text doesn't run to the edge. */
 .yX {
   padding-right: 0.25rem !important;
 }
 
-/* Hides Gmail's right-hand side panel (Calendar, Keep, Tasks icons).
-   .bAw is an auto-generated class name and could change after a Gmail
-   update; delete this rule to bring the panel back. */
+/* Hides two Gmail elements:
+   .Zt  the " - " between subject and preview, not needed now that
+        the preview has its own line
+   .bAw the right-hand side panel (Calendar, Keep, Tasks icons)
+   Both are auto-generated class names that could change after a
+   Gmail update. Delete .bAw from this rule to bring the panel back. */
+.Zt,
 .bAw {
   display: none !important;
 }

@@ -22,17 +22,8 @@ All notable changes to this theme are recorded here. The format follows
 
 ### Added
 - **New base settings:** `--gm-label-radius` (sidebar folder rounding, also
-  applied to hovered folders) and `--gm-label-font-size` (sidebar text
-  size), replacing fixed values.
-
-### Fixed
-- **Subject and preview run together.** The " - " between a message's
-  subject and its preview text is no longer hidden, now that both sit on
-  one line.
-
-### Removed
-- **Row height.** The base no longer makes inbox rows taller; use Gmail's
-  own Settings (gear icon) → Density instead.
+  applied to hovered folders), `--gm-row-height` (inbox row height) and
+  `--gm-label-font-size` (sidebar text size), replacing fixed values.
 
 ## [3.0.0] — 2026-11-02 — Base + themes
 
