@@ -1,9 +1,9 @@
-# Gmail CSS — Base + Themes
+# Gmail CSS Swatches
 
 Custom styles that reskin the Gmail web interface: roomier message rows,
 highlighted category tabs, rounded "card" styling for messages in a thread,
-and a choice of color themes, with a different theme per Gmail account if you
-like.
+and a choice of color themes (the swatches), with a different swatch per
+Gmail account if you like.
 
 Current version: **3.0.0** — see [CHANGELOG.md](CHANGELOG.md).
 

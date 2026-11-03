@@ -7,6 +7,10 @@ All notable changes to this theme are recorded here. The format follows
 ## [Unreleased]
 
 ### Changed
+- **New name: Gmail CSS Swatches.** The project, README and style
+  descriptions use the new name, and each theme is now called a swatch.
+  Style `@name`s are unchanged, so pasting an update over an installed
+  style still works.
 - **Softer thread header.** The sender/date strip on each message in a
   thread now uses a pale tint of the theme color instead of the full accent,
   with a thin accent-colored line underneath, so the sender and date are
