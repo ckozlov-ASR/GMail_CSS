@@ -1,6 +1,6 @@
 # Gmail Swatches
 
-Custom styles that reskin the Gmail web interface: roomier message rows,
+Custom styles that reskin the Gmail web interface: bolder subject lines,
 highlighted category tabs, rounded "card" styling for messages in a thread,
 and a choice of color themes (the swatches), with a different swatch per
 Gmail account if you like.
@@ -29,7 +29,7 @@ theme get the base's neutral grays.
 | Message list | Separate unread, read and selected row colors, hover color |
 | Category tabs | Accent background on the active Primary/Promotions/Updates tab, themed underline and hover |
 | Thread view | Each message is a rounded card with a pale tinted sender/date strip and an accent underline |
-| Density | Taller rows (50px), bolder sender and subject text, two minor UI elements hidden |
+| Text | Bolder sender and subject text, two minor UI elements hidden |
 
 ## Installing
 
@@ -118,11 +118,13 @@ These settings are in the **Settings you can change** block at the top of
 | --- | --- | --- |
 | `--gm-radius` | Rounding of Compose, tabs and message cards | 0px square … 14px … 24px very round |
 | `--gm-label-radius` | Rounding of the selected/hovered sidebar folder's right end | 0px … 16px … 20px full pill |
-| `--gm-row-height` | Height of each inbox row | 40px compact … 50px … 64px roomy |
 | `--gm-label-font-size` | Sidebar folder name size | 13px … 14px … 16px |
 | `--gm-font-stack` | Sidebar folder name font | Any installed fonts, `sans-serif` last |
 | `--gm-transition` | How fast hover colors fade in | 0s instant … 0.15s … 0.4s slow |
 | `--gm-border-subtle` | Compose button border strength | last number 0 … 0.1 … 0.3 |
+
+Row height isn't set here. Use Gmail's own **Settings (gear icon) →
+Density** (Default, Comfortable or Compact).
 
 ## Known limitations
 
