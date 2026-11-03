@@ -12,6 +12,8 @@ All notable changes to this theme are recorded here. The format follows
   with a thin accent-colored line underneath, so the sender and date are
   easier to read. Set by the new `--gm-thread-header` variable in each
   theme; themes without it fall back to the full accent.
+- **Rounded selected label.** The selected sidebar label (e.g. Inbox) has
+  a rounded right end again, matching the shape of a hovered label.
 
 ## [3.0.0] — 2026-11-02 — Base + themes
 

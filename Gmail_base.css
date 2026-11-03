@@ -97,10 +97,13 @@
    ========================================================= */
 
 /* Selected label row (e.g. "Inbox" when active).
-   Shape is left as Gmail's default — no custom rounding here. */
+   Rounded on the right only, the same pill-end shape Gmail gives a
+   hovered label, so selected and hovered rows match. The square left
+   edge stays flush with the sidebar. */
 .ain {
   background-color: var(--gm-label-selected, #e5e5e5) !important;
   border-left: 2px solid var(--gm-label-selected, #e5e5e5) !important;
+  border-radius: 0 16px 16px 0 !important;
 }
 
 /* Selected label's text: themed color and underlined, so it still
