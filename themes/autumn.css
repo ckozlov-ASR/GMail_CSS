@@ -35,6 +35,7 @@
     --gm-label-text: #0000cc;                       /* blue — selected label text */
     --gm-row-unread: rgba(250, 235, 204, 0.85);     /* warm cream — unread rows */
     --gm-row-read: #faf8f2;                         /* warm off-white — read rows, thread cards */
-    --gm-accent: rgba(230, 180, 90, 0.5);           /* golden amber — selected row, active tab, thread header strip */
+    --gm-accent: rgba(230, 180, 90, 0.5);           /* golden amber — selected row, active tab, thread header underline */
+    --gm-thread-header: rgba(230, 180, 90, 0.18);   /* pale amber — thread header strip */
   }
 }

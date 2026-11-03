@@ -28,7 +28,8 @@
      --gm-label-text      selected sidebar label text
      --gm-row-unread      unread message row background
      --gm-row-read        read message row, thread card background
-     --gm-accent          selected row, active tab, thread header strip
+     --gm-accent          selected row, active tab, thread header underline
+     --gm-thread-header   thread header strip (a lighter tint of the accent)
    Each var() carries a neutral gray fallback, so Gmail still looks
    reasonable if no theme is installed.
 
@@ -234,9 +235,14 @@
    an expanded message it wraps the header AND the full body text.
    Targeting the inner .gE.iv.gt table (the actual sender/date row)
    instead of .gs itself keeps the tint on just the header in both
-   cases. */
+   cases.
+   The strip uses a pale tint (--gm-thread-header) so the sender and
+   date stay easy to read, with a thin accent-colored line underneath
+   to keep the theme's color. Themes without --gm-thread-header fall
+   back to the full accent. */
 .adn.ads .gs > .gE.iv.gt {
-  background-color: var(--gm-accent, rgba(0, 0, 0, 0.1)) !important;
+  background-color: var(--gm-thread-header, var(--gm-accent, rgba(0, 0, 0, 0.05))) !important;
+  border-bottom: 2px solid var(--gm-accent, rgba(0, 0, 0, 0.1));
   border-top-left-radius: var(--gm-radius);
   border-top-right-radius: var(--gm-radius);
   padding: 6px 10px;

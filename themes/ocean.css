@@ -37,6 +37,7 @@
     --gm-label-text: #0b2e59;                       /* deep navy — selected label text */
     --gm-row-unread: rgba(214, 232, 245, 0.85);     /* pale aqua — unread rows */
     --gm-row-read: #f5f9fc;                         /* cool off-white — read rows, thread cards */
-    --gm-accent: rgba(90, 180, 175, 0.45);          /* seafoam — selected row, active tab, thread header strip */
+    --gm-accent: rgba(90, 180, 175, 0.45);          /* seafoam — selected row, active tab, thread header underline */
+    --gm-thread-header: rgba(90, 180, 175, 0.16);   /* pale seafoam — thread header strip */
   }
 }

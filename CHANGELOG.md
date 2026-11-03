@@ -6,6 +6,13 @@ All notable changes to this theme are recorded here. The format follows
 
 ## [Unreleased]
 
+### Changed
+- **Softer thread header.** The sender/date strip on each message in a
+  thread now uses a pale tint of the theme color instead of the full accent,
+  with a thin accent-colored line underneath, so the sender and date are
+  easier to read. Set by the new `--gm-thread-header` variable in each
+  theme; themes without it fall back to the full accent.
+
 ## [3.0.0] — 2026-11-02 — Base + themes
 
 Breaking: the single Autumn file is split into a layout base plus theme

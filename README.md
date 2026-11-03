@@ -28,7 +28,7 @@ theme get the base's neutral grays.
 | Left sidebar | Theme color on the selected label with underlined text, hover color, sharper icons |
 | Message list | Separate unread, read and selected row colors, hover color |
 | Category tabs | Accent background on the active Primary/Promotions/Updates tab, themed underline and hover |
-| Thread view | Each message is a rounded card with an accent sender/date strip |
+| Thread view | Each message is a rounded card with a pale tinted sender/date strip and an accent underline |
 | Density | Taller rows (50px), bolder sender and subject text, two minor UI elements hidden |
 
 ## Installing
@@ -58,7 +58,7 @@ email address in Ocean or Ember when you do.
 
 ### Theme colors
 
-Each theme sets the same seven variables, named for what they color:
+Each theme sets the same eight variables, named for what they color:
 
 | Variable | Used for |
 | --- | --- |
@@ -68,7 +68,8 @@ Each theme sets the same seven variables, named for what they color:
 | `--gm-label-text` | Selected sidebar label text |
 | `--gm-row-unread` | Unread message rows |
 | `--gm-row-read` | Read message rows, thread cards |
-| `--gm-accent` | Selected rows, active tab, thread header strip |
+| `--gm-accent` | Selected rows, active tab, thread header underline |
+| `--gm-thread-header` | Thread sender/date strip (a pale tint of the accent) |
 
 The base gives each one a neutral gray fallback, so Gmail still looks
 reasonable with the base alone.
@@ -76,7 +77,7 @@ reasonable with the base alone.
 ### A new theme or another account
 
 Copy `themes/ocean.css`, give it a new `@name`, change the email address and
-the seven colors, and add it to Stylus as another style.
+the eight colors, and add it to Stylus as another style.
 
 ### How account matching works
 
