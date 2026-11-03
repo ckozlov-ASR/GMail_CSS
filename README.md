@@ -144,9 +144,8 @@ The theme has been developed iteratively with AI assistance (Claude).
 
 - **April 2026 — v1.0.0.** The original green theme was uploaded as
   `Gmail_copy.css` alongside an experimental `Gmail2026_org.css`. The
-  experiment was dropped and the main file renamed to `Gmail1_green.css`,
-  then reformatted with section headers and comments without changing any
-  selectors or values.
+  experiment was dropped and the main file was reformatted with section
+  headers and comments without changing any selectors or values.
 - **v2.0.0 rework.** The green file was cleaned up and restyled: the
   palette was rebuilt around an autumn desktop background and
   moved into CSS variables, duplicate rules were merged, a sidebar icon-fade

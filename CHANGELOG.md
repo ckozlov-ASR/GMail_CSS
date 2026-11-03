@@ -7,14 +7,6 @@ All notable changes to this theme are recorded here. The format follows
 ## [Unreleased]
 
 ### Changed
-- **New name: Gmail Swatches.** The project, README and style
-  descriptions use the new name, and each theme is now called a swatch.
-  Style `@name`s are unchanged, so pasting an update over an installed
-  style still works.
-- **New file names.** `Gmail_base.css` is now `Base_GSwatch.css`, and the
-  themes are `themes/th_autumn.css`, `themes/th_ocean.css` and
-  `themes/th_ember.css`. Installed Stylus styles are unaffected; paste
-  updates from the new files.
 - **Softer thread header.** The sender/date strip on each message in a
   thread now uses a pale tint of the theme color instead of the full accent,
   with a thin accent-colored line underneath, so the sender and date are
@@ -129,7 +121,6 @@ styled areas.
 - **Cleanup.** Merged the separate unread/read hover rules and the selected
   row/selected-hover rules into shared selectors; rewrote comments to explain
   what each Gmail class targets and why each override is needed.
-- **File name.** `Gmail1_green.css` is now `Gmail_autumn.css`.
 
 ### Added
 - **Category tabs.** The active Primary/Promotions/Updates tab gets an amber
