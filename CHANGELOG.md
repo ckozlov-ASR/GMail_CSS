@@ -11,6 +11,10 @@ All notable changes to this theme are recorded here. The format follows
   descriptions use the new name, and each theme is now called a swatch.
   Style `@name`s are unchanged, so pasting an update over an installed
   style still works.
+- **New file names.** `Gmail_base.css` is now `Base_GSwatch.css`, and the
+  themes are `themes/th_autumn.css`, `themes/th_ocean.css` and
+  `themes/th_ember.css`. Installed Stylus styles are unaffected; paste
+  updates from the new files.
 - **Softer thread header.** The sender/date strip on each message in a
   thread now uses a pale tint of the theme color instead of the full accent,
   with a thin accent-colored line underneath, so the sender and date are

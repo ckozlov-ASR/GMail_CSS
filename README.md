@@ -11,10 +11,10 @@ Current version: **3.0.0** — see [CHANGELOG.md](CHANGELOG.md).
 
 | File | What it does |
 | --- | --- |
-| [`Gmail_base.css`](Gmail_base.css) | Layout and shapes for every account. Sets no palette; reads its colors from a theme. |
-| [`themes/autumn.css`](themes/autumn.css) | Sage, taupe, cream and golden amber, for **one account** matched by email address. |
-| [`themes/ocean.css`](themes/ocean.css) | Sky blue, slate, pale aqua and seafoam, for **one account** matched by email address. |
-| [`themes/ember.css`](themes/ember.css) | Copper, rust, peach and flame orange, for **one account** matched by email address. |
+| [`Base_GSwatch.css`](Base_GSwatch.css) | Layout and shapes for every account. Sets no palette; reads its colors from a theme. |
+| [`themes/th_autumn.css`](themes/th_autumn.css) | Sage, taupe, cream and golden amber, for **one account** matched by email address. |
+| [`themes/th_ocean.css`](themes/th_ocean.css) | Sky blue, slate, pale aqua and seafoam, for **one account** matched by email address. |
+| [`themes/th_ember.css`](themes/th_ember.css) | Copper, rust, peach and flame orange, for **one account** matched by email address. |
 
 Install the base once, plus one theme per account. Accounts without a
 theme get the base's neutral grays.
@@ -42,7 +42,7 @@ Add-ons). Each file becomes its own Stylus style:
    including the `==UserStyle==` header at the top, then save. Without that
    header Stylus reports "Could not find metadata".
 3. Repeat for each file:
-   - `Gmail_base.css` (always)
+   - `Base_GSwatch.css` (always)
    - one file from `themes/` per account, after replacing
      `your.account@example.com` with that account's address
 4. Reload Gmail.
@@ -93,7 +93,7 @@ reasonable with the base alone.
 
 ### A new theme or another account
 
-Copy `themes/ocean.css`, give it a new `@name`, change the email address and
+Copy `themes/th_ocean.css`, give it a new `@name`, change the email address and
 the eight colors, and add it to Stylus as another style.
 
 ### How account matching works
@@ -112,7 +112,7 @@ can likewise use `:root` and install the theme only in that profile.
 ### Shapes and spacing
 
 These settings are in the **Settings you can change** block at the top of
-`Gmail_base.css` and apply to every theme:
+`Base_GSwatch.css` and apply to every theme:
 
 | Variable | What it changes | Range |
 | --- | --- | --- |
@@ -165,7 +165,7 @@ The theme has been developed iteratively with AI assistance (Claude).
 
 ### Making changes
 
-1. Edit `Gmail_base.css` (layout) or a file in `themes/` (colors), and test
+1. Edit `Base_GSwatch.css` (layout) or a file in `themes/` (colors), and test
    it live by pasting into Stylus.
 2. Add an entry under **Unreleased** in [CHANGELOG.md](CHANGELOG.md).
 3. When releasing, move those entries under a new version heading, bump the

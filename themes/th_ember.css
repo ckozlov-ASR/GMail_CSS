@@ -1,18 +1,17 @@
 /* ==UserStyle==
-@name         Gmail Autumn
+@name         Gmail Ember
 @namespace    github.com/ckozlov-ASR/GMail_CSS
 @version      3.0.0
-@description  Autumn swatch for GMail Swatches: sage, taupe, cream, golden amber. For one Gmail account.
+@description  Ember swatch for GMail Swatches: copper, rust, peach, flame orange. For one Gmail account.
 @author       ckozlov-ASR
 ==/UserStyle== */
 
 /* =========================================================
-   GMail Swatches — Autumn (one account)
+   GMail Swatches — Ember (one account)
    =========================================================
-   Warm palette pulled from a forest/foliage desktop background:
-   sage greens, warm taupe and cream, golden amber.
-   Needs Gmail_base.css, which supplies the layout and reads these
-   variables.
+   Matched to a dark chocolate background with glowing copper and
+   orange swirls. Needs Base_GSwatch.css, which supplies the layout
+   and reads these variables.
 
    SETUP
    Replace your.account@example.com below with the address of the
@@ -32,53 +31,50 @@
    the semicolon at the end. Save in Stylus and Gmail updates at once.
 
    HOW IT PICKS THE ACCOUNT
-   Same as themes/ocean.css: the :has() selector matches only when
+   Same as themes/th_ocean.css: the :has() selector matches only when
    Gmail's account avatar button mentions the address. Accounts that
    no theme matches get the base's neutral gray fallbacks.
-   To make Autumn the default for every unmatched account instead,
-   replace the html:has(...) selector with :root — the email-matched
-   themes outrank :root, so they still win on their own accounts.
    ========================================================= */
 
 @-moz-document domain("mail.google.com") {
   html:has(a[aria-label*="your.account@example.com"]) {
-    /* Soft hover: light sage. Colors the scrollbar and the Compose
-       button when you point at it.
-       Strength: 0.4 subtle … 0.65 now … 0.9 strong */
-    --gm-hover-soft: rgba(168, 186, 148, 0.65);
-
-    /* Hover: deeper sage. Colors a message row, sidebar label or tab
+    /* Soft hover: copper. Colors the scrollbar and the Compose button
        when you point at it.
-       Strength: 0.5 subtle … 0.8 now … 1 solid */
-    --gm-hover: rgba(150, 172, 126, 0.8);
+       Strength: 0.4 subtle … 0.55 now … 0.9 strong */
+    --gm-hover-soft: rgba(214, 122, 52, 0.55);
 
-    /* Selected label: warm taupe. Background of the open folder in the
+    /* Hover: deeper copper. Colors a message row, sidebar label or tab
+       when you point at it.
+       Strength: 0.5 subtle … 0.7 now … 1 solid */
+    --gm-hover: rgba(196, 104, 40, 0.7);
+
+    /* Selected label: rust. Background of the open folder in the
        sidebar (e.g. Inbox). Solid color — pick a lighter or darker
        code to adjust. */
-    --gm-label-selected: #a89a7a;
+    --gm-label-selected: #c27a45;
 
-    /* Selected label text: blue. Text of the open folder in the
-       sidebar. Keep it dark enough to read on the color above. */
-    --gm-label-text: #0000cc;
+    /* Selected label text: dark espresso. Text of the open folder in
+       the sidebar. Keep it dark enough to read on the color above. */
+    --gm-label-text: #2b1408;
 
-    /* Unread rows: warm cream. Background of unread messages.
-       Strength: 0.5 faint … 0.85 now … 1 solid */
-    --gm-row-unread: rgba(250, 235, 204, 0.85);
+    /* Unread rows: warm peach. Background of unread messages.
+       Strength: 0.5 faint … 0.88 now … 1 solid */
+    --gm-row-unread: rgba(250, 222, 195, 0.88);
 
-    /* Read rows: warm off-white. Background of read messages and of
+    /* Read rows: candlelight cream. Background of read messages and of
        each message card in a conversation. Solid color — keep it
        very light so text stays readable. */
-    --gm-row-read: #faf8f2;
+    --gm-row-read: #fbf3ea;
 
-    /* Accent: golden amber. Selected (ticked) rows, the active
+    /* Accent: flame orange. Selected (ticked) rows, the active
        Primary/Promotions/Updates tab, and the line under each message
        header in a conversation.
        Strength: 0.3 subtle … 0.5 now … 0.7 strong */
-    --gm-accent: rgba(230, 180, 90, 0.5);
+    --gm-accent: rgba(235, 140, 60, 0.5);
 
-    /* Thread header: pale amber. Strip behind the sender and date at
+    /* Thread header: pale ember. Strip behind the sender and date at
        the top of each message in a conversation.
-       Strength: 0.10 lighter … 0.18 now … 0.30 darker */
-    --gm-thread-header: rgba(230, 180, 90, 0.18);
+       Strength: 0.10 lighter … 0.16 now … 0.30 darker */
+    --gm-thread-header: rgba(235, 140, 60, 0.16);
   }
 }
