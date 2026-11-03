@@ -114,13 +114,11 @@
   transition: var(--gm-transition);
 }
 
-/* Hover state: fills with the theme's soft hover color, drops the
-   default shadow, keeps the border. */
+/* Hover state: fills with the theme's soft hover color and drops the
+   default shadow. */
 .T-I-KE:hover {
   background: var(--gm-hover-soft, rgba(0, 0, 0, 0.2)) !important;
-  background-image: none !important;
   box-shadow: none;
-  border: var(--gm-border-subtle);
 }
 
 
@@ -134,7 +132,6 @@
    edge stays flush with the sidebar. */
 .ain {
   background-color: var(--gm-label-selected, #e5e5e5) !important;
-  border-left: 2px solid var(--gm-label-selected, #e5e5e5) !important;
   border-radius: 0 var(--gm-label-radius) var(--gm-label-radius) 0 !important;
 }
 
@@ -315,11 +312,6 @@
 .zF,
 .xY {
   min-height: var(--gm-row-height) !important;
-}
-
-/* Vertically centers content within those taller rows. */
-.xY {
-  vertical-align: middle !important;
 }
 
 /* Makes sender text slightly bolder for readability. */
