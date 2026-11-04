@@ -8,7 +8,8 @@ All notable changes to this theme are recorded here. The format follows
 
 ### Changed
 - **Compose keeps Gmail's shape.** The base no longer changes the Compose
-  button's corner rounding; it only sets its colors and border.
+  button's shape or size; it only sets its colors and a faint border,
+  which is now drawn inside the edge so the button doesn't grow.
 - **Tidier code and notes.** Removed three leftover rules that no longer
   did anything in current Gmail, regrouped the base into numbered sections,
   and shortened the comments in the base and themes and the README.

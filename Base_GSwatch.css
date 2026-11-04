@@ -83,12 +83,15 @@
    2) Compose Button
    ========================================================= */
 
-/* White with a faint border. The shape is left as Gmail draws it. */
+/* White with a faint border. The shape and size are left as Gmail
+   draws them: the border is an outline drawn just inside the edge,
+   so it doesn't make the button bigger. */
 .T-I-KE {
   background-color: white !important;
   background-image: none !important;
   color: black;
-  border: var(--gm-border-subtle);
+  outline: var(--gm-border-subtle);
+  outline-offset: -1px;
   transition: var(--gm-transition);
 }
 
