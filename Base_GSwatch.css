@@ -11,7 +11,7 @@
    =========================================================
    Overview of what this file changes in Gmail's UI:
      1) Scrollbar thumb
-     2) Compose button shape
+     2) Compose button colors
      3) Left sidebar labels (selected, hover, font)
      4) Message rows (unread, read, selected) + hover
      4b) Primary/Promotions/Updates tab highlight + hover
@@ -56,8 +56,8 @@
    Colors live in the theme styles (themes/*.css), not here.
    --------------------------------------------------------- */
 :root {
-  /* Corner rounding of the Compose button, the tabs and each message
-     card in a conversation.
+  /* Corner rounding of the tabs and each message card in a
+     conversation.
      Range: 0px square … 14px now … 24px very round */
   --gm-radius: 14px;
 
@@ -102,7 +102,8 @@
    2) Compose Button
    ========================================================= */
 
-/* Default state: white pill-shaped button with black text and a faint border. */
+/* Default state: white button with black text and a faint border.
+   The shape is left as Gmail draws it. */
 .T-I-KE {
   background-color: white !important;
   background-image: none !important;
@@ -110,7 +111,6 @@
   text-shadow: none;
   cursor: pointer !important;
   border: var(--gm-border-subtle);
-  border-radius: var(--gm-radius) !important;
   transition: var(--gm-transition);
 }
 

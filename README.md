@@ -24,7 +24,7 @@ theme get the base's neutral grays.
 | Area | Effect |
 | --- | --- |
 | Scrollbar | Theme-colored thumb (Chromium/WebKit browsers only) |
-| Compose button | White pill with a faint border; theme color on hover |
+| Compose button | White with a faint border; theme color on hover (Gmail's own shape) |
 | Left sidebar | Theme color on the selected label with underlined text, hover color, sharper icons |
 | Message list | Separate unread, read and selected row colors, hover color |
 | Category tabs | Accent background on the active Primary/Promotions/Updates tab, themed underline and hover |
@@ -116,7 +116,7 @@ These settings are in the **Settings you can change** block at the top of
 
 | Variable | What it changes | Range |
 | --- | --- | --- |
-| `--gm-radius` | Rounding of Compose, tabs and message cards | 0px square … 14px … 24px very round |
+| `--gm-radius` | Rounding of tabs and message cards | 0px square … 14px … 24px very round |
 | `--gm-label-radius` | Rounding of the selected/hovered sidebar folder's right end | 0px … 16px … 20px full pill |
 | `--gm-row-height` | Height of each inbox row | 40px compact … 50px … 64px roomy |
 | `--gm-label-font-size` | Sidebar folder name size | 13px … 14px … 16px |

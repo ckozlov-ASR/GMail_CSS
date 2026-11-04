@@ -6,6 +6,10 @@ All notable changes to this theme are recorded here. The format follows
 
 ## [Unreleased]
 
+### Changed
+- **Compose keeps Gmail's shape.** The base no longer changes the Compose
+  button's corner rounding; it only sets its colors and border.
+
 ## [3.1.1] — 2026-11-04 — Thread header spacing
 
 ### Fixed
