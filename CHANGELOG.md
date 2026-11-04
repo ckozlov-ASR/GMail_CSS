@@ -7,6 +7,9 @@ All notable changes to this theme are recorded here. The format follows
 ## [Unreleased]
 
 ### Changed
+- **Scrollbar color off.** Scrollbars keep Gmail's own color. The
+  theme-color rule is still in the base, commented out, for anyone who
+  wants it back.
 - **Compose left as Gmail draws it.** The base now only changes the
   Compose button's hover color. Its white background, border and shape are
   Gmail's own, and the `--gm-border-subtle` setting is gone.

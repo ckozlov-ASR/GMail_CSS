@@ -22,7 +22,7 @@ theme get the base's neutral grays.
 
 | Area | Effect |
 | --- | --- |
-| Scrollbar | Theme color (Chrome and Edge only) |
+| Scrollbar | Gmail's own (a theme-color rule is included but turned off) |
 | Compose button | Theme color on hover; otherwise Gmail's own |
 | Sidebar | Theme color and underlined text on the selected folder, hover color, clearer folder icons |
 | Inbox rows | Separate unread, read, selected and hover colors |
@@ -77,7 +77,7 @@ Each theme sets the same eight variables, named for what they color:
 
 | Variable | Used for |
 | --- | --- |
-| `--gm-hover-soft` | Scrollbar thumb, Compose hover |
+| `--gm-hover-soft` | Compose hover |
 | `--gm-hover` | Row, sidebar label and tab hover |
 | `--gm-label-selected` | Selected sidebar label background |
 | `--gm-label-text` | Selected sidebar label text |
@@ -126,7 +126,7 @@ To hide Gmail's right-hand side panel (Calendar, Keep, Tasks), change the
   find the new name with the browser's developer tools.
 - Account themes depend on Gmail's account button mentioning the email
   address. Neutral grays can flash briefly while Gmail loads.
-- Firefox ignores the scrollbar color.
+- The optional scrollbar color works in Chrome and Edge, not Firefox.
 
 ## Development notes
 

@@ -38,8 +38,8 @@
 
 @-moz-document domain("mail.google.com") {
   html:has(a[aria-label*="your.account@example.com"]) {
-    /* Soft hover: copper. Colors the scrollbar and the Compose button
-       when you point at it.
+    /* Soft hover: copper. Colors the Compose button when you point
+       at it.
        Strength: 0.4 subtle … 0.55 now … 0.9 strong */
     --gm-hover-soft: rgba(214, 122, 52, 0.55);
 

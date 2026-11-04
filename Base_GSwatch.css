@@ -10,7 +10,7 @@
    Gmail Swatches — Base (layout and shapes)
    =========================================================
    What this file changes:
-     1) Scrollbar color
+     1) Scrollbar color (turned off)
      2) Compose button hover color
      3) Sidebar folders (selected, hover, font)
      4) Inbox row colors (unread, read, selected, hover)
@@ -69,10 +69,13 @@
    1) Scrollbar
    ========================================================= */
 
-/* Scrollbar thumb color (Chrome and Edge only). */
+/* Turned off: scrollbars keep Gmail's own color. To color the
+   scrollbar thumb with the theme (Chrome and Edge only), remove the
+   comment markers around the rule below.
 ::-webkit-scrollbar-thumb {
   background-color: var(--gm-hover-soft, rgba(0, 0, 0, 0.2)) !important;
 }
+*/
 
 
 /* =========================================================
