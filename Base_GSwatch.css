@@ -9,51 +9,32 @@
 /* =========================================================
    Gmail Swatches — Base (layout and shapes)
    =========================================================
-   Overview of what this file changes in Gmail's UI:
-     1) Scrollbar thumb
+   What this file changes:
+     1) Scrollbar color
      2) Compose button colors
-     3) Left sidebar labels (selected, hover, font)
-     4) Message rows (unread, read, selected) + hover
-     4b) Primary/Promotions/Updates tab highlight + hover
-     4c) Thread view as rounded cards
-     5) Row height, text weight, layout fixes, and hiding
-        the subject/preview separator
+     3) Sidebar folders (selected, hover, font)
+     4) Inbox row colors (unread, read, selected, hover)
+     5) Category tabs (Primary / Promotions / Updates)
+     6) Conversations as rounded message cards
+     7) Two-line inbox rows and bolder text
 
-   This file sets no palette of its own. Every color is a
-   var(--gm-...) supplied by a theme style in themes/ (Autumn,
-   Ocean, Ember). The theme variables, by role:
-     --gm-hover-soft      scrollbar thumb, Compose hover
-     --gm-hover           row / sidebar label / tab hover
-     --gm-label-selected  selected sidebar label background
-     --gm-label-text      selected sidebar label text
-     --gm-row-unread      unread message row background
-     --gm-row-read        read message row, thread card background
-     --gm-accent          selected row, active tab, thread header underline
-     --gm-thread-header   thread header strip (a lighter tint of the accent)
-   Each var() carries a neutral gray fallback, so Gmail still looks
-   reasonable if no theme is installed.
+   Colors come from a theme style in themes/. Every color here has a
+   neutral gray fallback, so Gmail still looks fine with no theme.
 
-   Gmail's own class names are short, auto-generated, and not
-   guaranteed to stay the same across updates — if a rule stops
-   working after a Gmail update, that's the most likely reason.
+   Gmail's class names (.zE, .T-I-KE, …) are auto-generated and can
+   change in a Gmail update. If a rule stops working, that's the most
+   likely reason.
 
-   STYLUS
-   Paste the whole file, header included, into its own Stylus
-   style, and add one or more theme styles next to it. The
-   ==UserStyle== header names the style; without it Stylus reports
-   "Could not find metadata". Everything below sits inside
-   @-moz-document so it only applies on mail.google.com.
+   Paste the whole file, header included, into its own Stylus style.
    ========================================================= */
 
 @-moz-document domain("mail.google.com") {
 
 /* ---------------------------------------------------------
    SETTINGS YOU CAN CHANGE (no coding needed)
-   These shape, size and speed settings apply to every theme.
-   Each one has a note saying what it does and a suggested range.
    Change only the number (keep "px", "s", the commas and the
-   semicolon), save in Stylus, and Gmail updates at once.
-   Colors live in the theme styles (themes/*.css), not here.
+   semicolon) and save in Stylus; Gmail updates at once.
+   Colors are set in the theme styles, not here.
    --------------------------------------------------------- */
 :root {
   /* Corner rounding of the tabs and each message card in a
@@ -92,7 +73,7 @@
    1) Scrollbar
    ========================================================= */
 
-/* Recolors the draggable scrollbar thumb (WebKit browsers only). */
+/* Scrollbar thumb color (Chrome and Edge only). */
 ::-webkit-scrollbar-thumb {
   background-color: var(--gm-hover-soft, rgba(0, 0, 0, 0.2)) !important;
 }
@@ -102,22 +83,18 @@
    2) Compose Button
    ========================================================= */
 
-/* Default state: white button with black text and a faint border.
-   The shape is left as Gmail draws it. */
+/* White with a faint border. The shape is left as Gmail draws it. */
 .T-I-KE {
   background-color: white !important;
   background-image: none !important;
   color: black;
-  text-shadow: none;
-  cursor: pointer !important;
   border: var(--gm-border-subtle);
   transition: var(--gm-transition);
 }
 
-/* Hover state: fills with the theme's soft hover color and drops the
-   default shadow. The color is laid over solid white so the Gmail
-   background image can't show through and fade the button, and the
-   text is kept dark because Gmail turns it gray on hover. */
+/* Hover: the theme color laid over solid white, so the Gmail
+   background image can't show through, with the text kept dark
+   (Gmail grays it on hover). */
 .T-I-KE:hover {
   background:
     linear-gradient(var(--gm-hover-soft, rgba(0, 0, 0, 0.2)), var(--gm-hover-soft, rgba(0, 0, 0, 0.2))),
@@ -128,30 +105,24 @@
 
 
 /* =========================================================
-   3) Left Sidebar / Labels
+   3) Sidebar Folders
    ========================================================= */
 
-/* Selected label row (e.g. "Inbox" when active).
-   Rounded on the right only, the same pill-end shape Gmail gives a
-   hovered label, so selected and hovered rows match. The square left
-   edge stays flush with the sidebar. */
+/* Selected folder (e.g. Inbox): rounded on the right only, like a
+   hovered folder. */
 .ain {
   background-color: var(--gm-label-selected, #e5e5e5) !important;
   border-radius: 0 var(--gm-label-radius) var(--gm-label-radius) 0 !important;
 }
 
-/* Selected label's text: themed color and underlined, so it still
-   reads as "active" against the selected background. */
+/* Selected folder's text: themed and underlined. */
 .nZ.TO .n0 {
   color: var(--gm-label-text, #0000cc) !important;
   text-decoration: underline !important;
 }
 
-/* Every label's base text style: custom font + size.
-   Also clears a translucent white wash (rgba(255,255,255,0.3)) that Gmail
-   applies to this element by default — left alone, it dulls the folder
-   icon and text against the sidebar. Transparent here lets .ain (selected)
-   and .TO:hover (below) show their colors cleanly. */
+/* Every folder: font and size. Transparent background removes a white
+   wash Gmail adds that dulls the folder icons. */
 .TO {
   font-family: var(--gm-font-stack) !important;
   font-size: var(--gm-label-font-size) !important;
@@ -159,8 +130,7 @@
   transition: var(--gm-transition);
 }
 
-/* Hovered label row (not selected). Shares --gm-hover with the
-   message-row and tab hovers below, so all hover states move together. */
+/* Hovered folder. */
 .TO:hover {
   background: var(--gm-hover, rgba(0, 0, 0, 0.06)) !important;
   border-radius: 0 var(--gm-label-radius) var(--gm-label-radius) 0 !important;
@@ -168,33 +138,29 @@
 
 
 /* =========================================================
-   4) Message Row Colors
+   4) Inbox Row Colors
    ========================================================= */
 
-/* Unread message row. */
+/* Unread row. */
 .zE {
   background: var(--gm-row-unread, rgba(255, 255, 255, 0.9)) !important;
   transition: var(--gm-transition);
 }
 
-/* Read message row.
-   (Vertical split users: comment out the .yO:hover rule below if that
-   hover effect feels too distracting in that layout.) */
+/* Read row. */
 .yO {
   background: var(--gm-row-read, #f6f6f6) !important;
   transition: var(--gm-transition);
 }
 
-/* Hovering either an unread or read row.
-   Combined into one rule so they always match each other. */
+/* Hovered row, unread or read. */
 .zE:hover,
 .yO:hover {
   background: var(--gm-hover, rgba(0, 0, 0, 0.06)) !important;
 }
 
-/* Selected (checkbox-ticked) row: accent color, and it keeps the accent
-   on hover rather than switching to the hover color, so "selected"
-   stays visually distinct from "just hovered". */
+/* Selected (ticked) row keeps the accent color on hover, so selected
+   and hovered rows look different. */
 .x7,
 .x7:hover {
   background: var(--gm-accent, rgba(0, 0, 0, 0.1)) !important;
@@ -203,34 +169,22 @@
 
 
 /* =========================================================
-   4b) Category Tabs (Primary / Promotions / Updates)
+   5) Category Tabs (Primary / Promotions / Updates)
    ========================================================= */
 
-/* Active tab background: accent color, matching the selected-row color,
-   so the active tab reads as clearly "on" instead of just a thin
-   underline. .aAy is Gmail's shared tab-cell class; it adds "J-KU-KO"
-   only to whichever tab is currently active. Gmail also ships its own
-   more specific rule that would otherwise win
-   (.J-KU-Jg-K9.aAA .J-KU-KO.aAy { background: none !important; }),
-   so this selector repeats that exact specificity to override it. */
+/* Active tab: accent background. The selector matches the specificity
+   of Gmail's own "background: none !important" rule so this one wins. */
 .J-KU-Jg-K9.aAA .J-KU-KO.aAy {
   background-color: var(--gm-accent, rgba(0, 0, 0, 0.1)) !important;
   border-radius: var(--gm-radius) var(--gm-radius) 0 0;
 }
 
-/* Active tab's underline bar: recolored from Gmail's default blue to
-   the hover color. The bar itself is a ::before pseudo-element; Gmail
-   sets its color via several per-tab variant selectors (e.g.
-   .J-KU-KO.aIf-aLe::before), so overriding the shared
-   .J-KU-KO.aAy::before with !important covers all of them at once. */
+/* Active tab's underline bar, in the hover color instead of blue. */
 .J-KU-KO.aAy::before {
   background-color: var(--gm-hover, rgba(0, 0, 0, 0.06)) !important;
 }
 
-/* Hovering an inactive tab (Promotions, Updates, or Primary when it
-   isn't the active one), same as the other hover states.
-   :not(.J-KU-KO) keeps this off the already-highlighted active tab so
-   the two states don't fight each other. */
+/* Hovered tab, except the active one. */
 .J-KU-Jg-K9.aAA .aRz .aAy:not(.J-KU-KO):hover {
   background-color: var(--gm-hover, rgba(0, 0, 0, 0.06)) !important;
   border-radius: var(--gm-radius) var(--gm-radius) 0 0;
@@ -239,24 +193,15 @@
 
 
 /* =========================================================
-   4c) Thread View — Rounded, Compressed Messages
+   6) Conversations as Message Cards
    =========================================================
-   Inspired by the old (2012) "Gmail messages, rounded and
-   compressed" userstyle. In a long thread, Gmail's default collapsed
-   messages are flat, nearly identical rows with lots of whitespace,
-   so it's hard to tell at a glance where one message ends and the
-   next begins. This wraps each message in its own rounded card with
-   a tinted header strip (sender/date), closer in spirit to a chat
-   bubble, and tightens the vertical spacing between them.
-   .adn.ads is Gmail's per-message container (one per message in the
-   thread, whether collapsed to a snippet or fully expanded); .gs is
-   that message's header row (avatar, sender name, date); .ajx is the
-   message body/snippet below the header.
+   Each message in an open conversation becomes a rounded card with
+   a tinted sender/date strip, so it's easy to see where one message
+   ends and the next begins.
    ========================================================= */
 
-/* Each message in the thread becomes its own rounded card, with a
-   small gap below it instead of Gmail's default hairline divider.
-   The top margin keeps the first card from crowding the subject line. */
+/* Expanded message card. The top margin keeps the first card off the
+   subject line. */
 .adn.ads {
   background-color: var(--gm-row-read, #f6f6f6) !important;
   border: 1px solid rgba(0, 0, 0, 0.08) !important;
@@ -266,22 +211,9 @@
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
 }
 
-/* The header row (avatar, sender, date) gets a tinted strip across
-   the top of the card, visually separating "who/when" from the
-   message content below — standing in for the old theme's gradient
-   header in a simpler, flatter way.
-   Note: .gs holds only the header for a collapsed message, but for
-   an expanded message it wraps the header AND the full body text.
-   Targeting the inner .gE.iv.gt table (the actual sender/date row)
-   instead of .gs itself keeps the tint on just the header in both
-   cases.
-   The strip uses a pale tint (--gm-thread-header) so the sender and
-   date stay easy to read, with a thin accent-colored line underneath
-   to keep the theme's color. Themes without --gm-thread-header fall
-   back to the full accent.
-   Gmail's own top spacing is left alone so the sender name lines up
-   with the avatar; an 8px box-shadow in the same tint stretches the
-   strip up to the card's top edge instead. */
+/* Sender/date strip: a pale tint with an accent line underneath.
+   Gmail's top spacing is kept so the name lines up with the avatar;
+   the box-shadow stretches the tint up to the card's top edge. */
 .adn.ads .gs > .gE.iv.gt {
   background-color: var(--gm-thread-header, var(--gm-accent, rgba(0, 0, 0, 0.05))) !important;
   box-shadow: 0 -8px 0 0 var(--gm-thread-header, var(--gm-accent, rgba(0, 0, 0, 0.05)));
@@ -292,20 +224,12 @@
   margin: 0 -8px;
 }
 
-/* Tightens the space directly under the header so the body/snippet
-   sits closer to it — the "compressed" half of the theme. */
+/* Less space between the strip and the message text. */
 .adn.ads .ajx {
   padding-top: 2px !important;
 }
 
-/* Gmail only renders a full .adn.ads card for the message(s) that are
-   expanded; by default (opening a thread from the inbox, not search)
-   only the newest message auto-expands, and every older message in
-   the thread collapses to a single compact line — .kv — showing just
-   sender, date, and a one-line snippet. Giving those the same rounded
-   card treatment (without the header tint, since there's no separate
-   header element to target) keeps the whole thread visually
-   consistent whether a message is expanded or still collapsed. */
+/* Collapsed older messages: the same card, without the strip. */
 .kv {
   background-color: var(--gm-row-read, #f6f6f6) !important;
   border: 1px solid rgba(0, 0, 0, 0.08) !important;
@@ -315,24 +239,35 @@
 
 
 /* =========================================================
-   5) Layout / Density Tweaks
+   7) Two-Line Rows and Bolder Text
    ========================================================= */
 
-/* Increases row height for a roomier, less cramped message list. */
-.zF,
+/* Row height (see --gm-row-height above). */
 .xY {
   min-height: var(--gm-row-height) !important;
 }
 
-/* Makes sender text slightly bolder for readability. */
+/* Subject on the first line, preview text on a second line. */
+.y6,
+.xT {
+  display: table !important;
+}
+
+/* Hides the " - " between subject and preview, which isn't needed
+   with the preview on its own line. To also hide Gmail's right-hand
+   side panel (Calendar, Keep, Tasks icons), change this to
+   ".Zt, .bAw". */
+.Zt {
+  display: none !important;
+}
+
+/* Slightly bolder sender names. */
 .bq3 {
   font-weight: 500 !important;
 }
 
-/* Subject lines, one step bolder than Gmail's default.
-   .bog is the subject in every row; in unread rows Gmail wraps the
-   text in an inner .bqe. Unread subjects stay a step heavier than
-   read ones, so the two are still easy to tell apart. */
+/* Subjects one step bolder than Gmail's default. Unread subjects
+   (.bqe) stay heavier than read ones. */
 .yO .bog {
   font-weight: 500 !important;
 }
@@ -341,25 +276,9 @@
   font-weight: 600 !important;
 }
 
-/* Two-line rows: puts the subject on the first line and the preview
-   text on a second line underneath, using the taller rows above. */
-.y6,
-.xT {
-  display: table !important;
-}
-
-/* Adds a touch of right padding so message text doesn't run to the edge. */
+/* A little right padding so message text doesn't touch the edge. */
 .yX {
   padding-right: 0.25rem !important;
-}
-
-/* Hides the " - " between subject and preview (.Zt), not needed now
-   that the preview has its own line. To also hide Gmail's right-hand
-   side panel (Calendar, Keep, Tasks icons), change the selector to
-   ".Zt, .bAw". Both are auto-generated class names that could change
-   after a Gmail update. */
-.Zt {
-  display: none !important;
 }
 
 } /* end @-moz-document domain("mail.google.com") */

@@ -31,9 +31,9 @@
    the semicolon at the end. Save in Stylus and Gmail updates at once.
 
    HOW IT PICKS THE ACCOUNT
-   Same as themes/th_ocean.css: the :has() selector matches only when
-   Gmail's account avatar button mentions the address. Accounts that
-   no theme matches get the base's neutral gray fallbacks.
+   The html:has(...) line below matches only when Gmail's account
+   button (top right) mentions the address. Accounts that no theme
+   matches get the base's neutral grays.
    ========================================================= */
 
 @-moz-document domain("mail.google.com") {
