@@ -278,14 +278,18 @@
    The strip uses a pale tint (--gm-thread-header) so the sender and
    date stay easy to read, with a thin accent-colored line underneath
    to keep the theme's color. Themes without --gm-thread-header fall
-   back to the full accent. */
+   back to the full accent.
+   Gmail's own top spacing is left alone so the sender name lines up
+   with the avatar; an 8px box-shadow in the same tint stretches the
+   strip up to the card's top edge instead. */
 .adn.ads .gs > .gE.iv.gt {
   background-color: var(--gm-thread-header, var(--gm-accent, rgba(0, 0, 0, 0.05))) !important;
+  box-shadow: 0 -8px 0 0 var(--gm-thread-header, var(--gm-accent, rgba(0, 0, 0, 0.05)));
   border-bottom: 2px solid var(--gm-accent, rgba(0, 0, 0, 0.1));
-  border-top-left-radius: var(--gm-radius);
-  border-top-right-radius: var(--gm-radius);
-  padding: 6px 10px;
-  margin: -8px -8px 0 -8px;
+  padding-right: 10px;
+  padding-bottom: 6px;
+  padding-left: 10px;
+  margin: 0 -8px;
 }
 
 /* Tightens the space directly under the header so the body/snippet
