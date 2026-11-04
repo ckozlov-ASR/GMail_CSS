@@ -6,6 +6,10 @@ All notable changes to this theme are recorded here. The format follows
 
 ## [Unreleased]
 
+### Fixed
+- **Room under the subject.** In an open conversation, the first message
+  card no longer sits right up against the subject line.
+
 ## [3.1.0] — 2026-11-03 — Easier settings, softer headers
 
 ### Changed
