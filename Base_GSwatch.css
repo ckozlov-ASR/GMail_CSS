@@ -11,7 +11,7 @@
    =========================================================
    What this file changes:
      1) Scrollbar color
-     2) Compose button colors
+     2) Compose button hover color
      3) Sidebar folders (selected, hover, font)
      4) Inbox row colors (unread, read, selected, hover)
      5) Category tabs (Primary / Promotions / Updates)
@@ -62,10 +62,6 @@
   /* How quickly hover colors fade in.
      Range: 0s instant … 0.15s now … 0.4s slow */
   --gm-transition: background-color 0.15s ease;
-
-  /* Thin border around the Compose button. The last number is its
-     strength: 0 none … 0.1 now … 0.3 darker */
-  --gm-border-subtle: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 
@@ -83,27 +79,15 @@
    2) Compose Button
    ========================================================= */
 
-/* White with a faint border. The shape and size are left as Gmail
-   draws them: the border is an outline drawn just inside the edge,
-   so it doesn't make the button bigger. */
-.T-I-KE {
-  background-color: white !important;
-  background-image: none !important;
-  color: black;
-  outline: var(--gm-border-subtle);
-  outline-offset: -1px;
-  transition: var(--gm-transition);
-}
-
-/* Hover: the theme color laid over solid white, so the Gmail
-   background image can't show through, with the text kept dark
-   (Gmail grays it on hover). */
+/* Only the hover color changes; otherwise Compose is Gmail's own.
+   The theme color is laid over solid white so the Gmail background
+   image can't show through, and the text is kept dark (Gmail grays
+   it on hover). */
 .T-I-KE:hover {
   background:
     linear-gradient(var(--gm-hover-soft, rgba(0, 0, 0, 0.2)), var(--gm-hover-soft, rgba(0, 0, 0, 0.2))),
     white !important;
   color: #202124 !important;
-  box-shadow: none;
 }
 
 

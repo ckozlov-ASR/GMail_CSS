@@ -23,7 +23,7 @@ theme get the base's neutral grays.
 | Area | Effect |
 | --- | --- |
 | Scrollbar | Theme color (Chrome and Edge only) |
-| Compose button | White with a faint border; theme color on hover (Gmail's own shape) |
+| Compose button | Theme color on hover; otherwise Gmail's own |
 | Sidebar | Theme color and underlined text on the selected folder, hover color, clearer folder icons |
 | Inbox rows | Separate unread, read, selected and hover colors |
 | Category tabs | Accent color on the active Primary/Promotions/Updates tab, themed underline and hover |
@@ -114,7 +114,6 @@ These settings are in the **Settings you can change** block at the top of
 | `--gm-label-font-size` | Sidebar folder name size | 13px … 14px … 16px |
 | `--gm-font-stack` | Sidebar folder name font | Any installed fonts, `sans-serif` last |
 | `--gm-transition` | How fast hover colors fade in | 0s instant … 0.15s … 0.4s slow |
-| `--gm-border-subtle` | Compose button border strength | last number 0 … 0.1 … 0.3 |
 
 To hide Gmail's right-hand side panel (Calendar, Keep, Tasks), change the
 `.Zt` rule at the end of the base to `.Zt, .bAw`.
